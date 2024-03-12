@@ -16,7 +16,10 @@ export async function runMsg(thread_id: string, formData: FormData) {
 
 	const message = await openai.beta.threads.messages.create(thread_id, { role: 'user', content });
 
-	let run = await openai.beta.threads.runs.create(thread_id, { assistant_id });
+	let run = await openai.beta.threads.runs.create(thread_id, {
+		assistant_id,
+		additional_instructions: 'Skip annotations',
+	});
 
 	while (run.status !== 'completed') {
 		await sleep(2000);

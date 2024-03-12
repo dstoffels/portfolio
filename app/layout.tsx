@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import Header from '@/components/header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,11 +17,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${inter.className} flex min-h-screen`}>
-				<header className="px-10 py-2 bg-slate-700">
-					<h1>Dan O Stoffels</h1>
-				</header>
-				<main>{children}</main>
+			<body className={`${inter.className} flex min-h-screen w-full font-sans`}>
+				<Header />
+				<main className="w-5/6">{children}</main>
 			</body>
 		</html>
 	);
