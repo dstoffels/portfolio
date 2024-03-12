@@ -17,7 +17,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${inter.className} flex min-h-screen w-full font-sans`}>
+			<body
+				className={`${inter.className} flex min-h-screen w-full font-sans dark:bg-zinc-800 text-zinc-300`}
+			>
 				<Header />
 				<main className="w-5/6">{children}</main>
 			</body>
