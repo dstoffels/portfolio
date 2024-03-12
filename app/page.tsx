@@ -3,6 +3,6 @@ import { PropsWithChildren } from 'react';
 
 export type PageProps = PropsWithChildren & {};
 
-export default function Page({ children }: PageProps) {
-	return <>{children}</>;
+export default function Page({}: PageProps) {
+	return <div>Main Page</div>;
 }
