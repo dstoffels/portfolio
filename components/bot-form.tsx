@@ -11,8 +11,8 @@ export default async function BotForm({ thread_id }: { thread_id: string }) {
 		.reverse();
 
 	return (
-		<div className="flex flex-col h-full">
-			<div className="p-6 flex-1 overflow-hidden">{messageList}</div>
+		<div className="flex flex-col h-screen">
+			<div className="p-6 flex-1 overflow-y-scroll">{messageList}</div>
 			<form id="bot-form" action={runMsgWthreadId} className="px-20 py-10">
 				<BotTextArea />
 			</form>
