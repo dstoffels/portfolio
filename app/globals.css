@@ -31,3 +31,23 @@ body {
 		text-wrap: balance;
 	}
 }
+
+::-webkit-scrollbar {
+	height: 1rem;
+	width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: hsla(0, 0%, 100%, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+	--tw-border-opacity: 1;
+	border-radius: 9999px;
+	border-width: 1px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: transparent;
+	border-radius: 9999px;
+}
