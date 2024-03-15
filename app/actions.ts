@@ -28,6 +28,7 @@ export async function runMsg(thread_id: string, formData: FormData) {
 	}
 
 	revalidatePath(`/bot/${thread_id}`);
+	formData.set('content', '');
 }
 
 export async function fetchMsgs(thread_id: string) {
