@@ -21,7 +21,7 @@ export default function RootLayout({
 				className={`${inter.className} flex flex-col max-h-screen font-sans dark:bg-zinc-800 text-zinc-300 box-border`}
 			>
 				<Header />
-				<main className="min-h-full flex-1 flex flex-col">{children}</main>
+				<main className="min-h-full flex-1 flex flex-col my-16">{children}</main>
 			</body>
 		</html>
 	);

@@ -1,0 +1,97 @@
+name: Dan Stoffels
+subtext: Full Stack Developer | React Specialist | Django Specialist
+email: dan.stoffels@gmail.com
+phone: 1-615-974-2405
+location: Nashville, TN
+website: https://indietour.org
+socials:
+  linkedin: https://www.linkedin.com/in/danstoffels/
+  facebook: 
+  instagram: 
+
+summary: With over 12 years of experience ranging from web development to full stack engineering, I specialize in React and Django and have instructed over 1200 students in the fields of audio and software engineering during my 8 years of tenure in higher education. My passion for music, technology and teaching brings a structured and creative approach that results in innovative solutions.
+
+experience:
+  - position: Instructor of Software Development
+    company: devCodeCamp
+    location: Milwaukee, WI (remote)
+    start_date: 2022-04-11
+    end_date: 2024-02-19
+    responsibilities:
+      - Led classes of 5-15 students on databases, backends, frontends & full stack dev.
+      - Developed & maintained course content for all mentioned technologies.
+      - Spearheaded four course modules on React, including a 26-video tutorial series.
+
+education:
+  - degree: Bachelor of Science in Entertainment & Media Business
+    institution: Madison Media Institute
+    start_date: 2013-02-01
+    end_date: 2014-08-01
+    location: Madison, WI
+  - degree: Associate of Arts in Recording & Music Technology
+    institution: Madison Media Institute
+    start_date: 2006-02-01
+    end_date: 2007-05-01
+    location: Madison, WI
+
+# Proficiencies (can use .5):
+  # 1: Foundational
+  # 2: Novice
+  # 3: Intermediate
+  # 4: Advanced
+  # 5: Expert
+
+skills:
+  languages:
+    - name: JavaScript
+      proficiency: 5
+    - name: Python
+      proficiency: 5
+    - name: C#
+      proficiency: 4
+    - name: SQL
+      proficiency: 4
+    - name: Java
+      proficiency: 3
+  frameworks:
+    - name: React 
+      proficiency: 5
+    - name: Django 
+      proficiency: 5
+    - name: Flask 
+      proficiency: 4
+    - name: ASP.NET 
+      proficiency: 3.5
+    - name: Next.js 
+      proficiency: 3.5
+  devops:
+    - name: Docker 
+      proficiency: 4.5
+    - name: Jenkins 
+      proficiency: 3.5
+    - name: AWS 
+      proficiency: 3.5
+    - name: GCP 
+      proficiency: 3.5
+    - name: Kubernetes 
+      proficiency: 2.5
+
+certifications:
+  - name: Full Stack Software Development 
+    institution: devCodeCamp
+    date: 2022-04-11
+    description: A comprehensive 16-week bootcamp covering Python & Django REST APIs with SQL databases, and basic web development up to React MPAs with JWT authentication.
+
+achievements:
+  - title: Optimized React Course
+    description: Spearheaded the refactoring of a React course that led to a 25% increase in student project completion.
+    year: 2023
+    company: devCodeCamp
+  - title: Modularized Software Curriculum
+    description: Restructured a software development program into a decoupled course heirarchy, boosting sales 10% by offering more affordable options.
+    year: 2023
+    company: devCodeCamp
+  - title: Enhanced Social Media Content
+    description: Produced educational and testimonial video content for social media, improving impressions by 30%.
+    year: 2022
+    company: devCodeCamp
