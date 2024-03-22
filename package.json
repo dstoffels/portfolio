@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "chrome-aws-lambda": "^10.1.0",
-    "chromium": "^3.0.3",
     "html2canvas": "^1.4.1",
     "next": "14.1.0",
     "openai": "^4.28.4",

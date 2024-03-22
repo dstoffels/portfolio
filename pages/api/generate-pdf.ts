@@ -4,8 +4,9 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import Chromium from 'chrome-aws-lambda';
 
 export default async function generatePDF(req: NextApiRequest, res: NextApiResponse) {
-	const puppeteer = Chromium.puppeteer;
-	const browser = await puppeteer.launch();
+	const browser = await Chromium.puppeteer.launch({
+		headless: true,
+	});
 	const page = await browser.newPage();
 
 	await page.setContent(req.body, { waitUntil: 'networkidle0' });
