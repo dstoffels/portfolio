@@ -1,6 +1,4 @@
 import P from '@/components/P';
-import { CiLink } from 'react-icons/ci';
-import { FaLink } from 'react-icons/fa';
 import { IoMdLink } from 'react-icons/io';
 
 const Project = ({ project }: ProjectProps) => {

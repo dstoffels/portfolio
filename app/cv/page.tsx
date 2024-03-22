@@ -11,6 +11,7 @@ import { MdEmail, MdLocalPhone, MdLocationPin } from 'react-icons/md';
 import { CgWebsite } from 'react-icons/cg';
 import DownloadBtn from './DownloadBtn';
 import Project, { CVProject } from './Project';
+import { generatePDF } from './actions';
 
 const CVPage = ({}) => {
 	const cvFile = fs.readFileSync('./data/cv.yaml', 'utf-8');
@@ -41,7 +42,7 @@ const CVPage = ({}) => {
 
 	return (
 		<div className="my-2 mx-auto">
-			<div className="flex overflow-hidden aspect-pdf w-5xl" id="cv">
+			<div className="flex overflow-hidden aspect-pdf w-5xl print:" id="cv">
 				<div className="w-2/3 p-10 bg-white text-black">
 					<header className="mb-8 text-right">
 						<h1 className="text-4xl font-semibold">{data.name}</h1>
@@ -84,7 +85,11 @@ const CVPage = ({}) => {
 					<Section heading="Education">{education}</Section>
 				</div>
 				<div className="w-1/3 p-10 bg-sky-900 text-white">
-					<img src="danimal-sq.png" alt="" className="h-32 mx-auto mb-8 rounded-md" />
+					<img
+						src="http://localhost:3000/images/danimal-sq.png"
+						alt="Image of Dan Stoffels with a cat"
+						className="h-32 mx-auto mb-8 rounded-md"
+					/>
 					<Section heading="Achievements">{achievements}</Section>
 					<Section heading="Skills">
 						<div className="mb-3">
@@ -104,7 +109,7 @@ const CVPage = ({}) => {
 					<Section heading="Certifications">{certifications}</Section>
 				</div>
 			</div>
-			<DownloadBtn />
+			<DownloadBtn onClick={generatePDF} />
 		</div>
 	);
 };

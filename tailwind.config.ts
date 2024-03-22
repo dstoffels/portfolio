@@ -13,7 +13,7 @@ const config: Config = {
 				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
 			},
 			aspectRatio: {
-				pdf: '1 / 1.414',
+				pdf: '1 / 1.451',
 			},
 			width: {
 				'5xl': '64rem',
