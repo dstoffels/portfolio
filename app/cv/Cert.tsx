@@ -5,10 +5,10 @@ const Cert = ({ cert }: CertProps) => {
 	return (
 		<div>
 			<h3 className="text-orange-500 font-semibold">{cert.name}</h3>
-			<div className="flex justify-between">
+			{/* <div className="flex justify-between">
 				<P className="font-semibold mb-2">{cert.institution}</P>
 				<P>{year}</P>
-			</div>
+			</div> */}
 			<P>{cert.description}</P>
 		</div>
 	);

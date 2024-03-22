@@ -10,6 +10,7 @@ import Cert, { CVCertification } from './Cert';
 import { MdEmail, MdLocalPhone, MdLocationPin } from 'react-icons/md';
 import { CgWebsite } from 'react-icons/cg';
 import DownloadBtn from './DownloadBtn';
+import Project, { CVProject } from './Project';
 
 const CVPage = ({}) => {
 	const cvFile = fs.readFileSync('./data/cv.yaml', 'utf-8');
@@ -34,13 +35,17 @@ const CVPage = ({}) => {
 		<Cert key={`cert-${i}`} cert={cert} />
 	));
 
+	const projects = data.projects.map((project, i) => (
+		<Project key={`proj-${i}`} project={project} />
+	));
+
 	return (
 		<div className="my-2 mx-auto">
 			<div className="flex overflow-hidden aspect-pdf w-5xl" id="cv">
 				<div className="w-2/3 p-10 bg-white text-black">
-					<div className="mb-8">
-						<h1 className="text-3xl font-semibold">{data.name}</h1>
-						<p className="text-lg text-orange-600 mb-2">{data.subtext}</p>
+					<header className="mb-8 text-right">
+						<h1 className="text-4xl font-semibold">{data.name}</h1>
+						<p className="text-lg text-orange-600">{data.subtext}</p>
 
 						<div className="pb-2">
 							{data.email && (
@@ -71,7 +76,7 @@ const CVPage = ({}) => {
 								</span>
 							)}
 						</div>
-					</div>
+					</header>
 					<Section heading="Summary">
 						<P>{data.summary}</P>
 					</Section>
@@ -95,6 +100,7 @@ const CVPage = ({}) => {
 							<div>{devops}</div>
 						</div>
 					</Section>
+					<Section heading="Projects">{projects}</Section>
 					<Section heading="Certifications">{certifications}</Section>
 				</div>
 			</div>
@@ -119,6 +125,7 @@ export type CVData = {
 	skills: CVSkills;
 	certifications: CVCertification[];
 	achievements: CVAchievement[];
+	projects: CVProject[];
 };
 
 export type CVSkills = {

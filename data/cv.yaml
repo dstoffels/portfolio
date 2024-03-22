@@ -9,7 +9,7 @@ socials:
   facebook: 
   instagram: 
 
-summary: With over 12 years of experience ranging from web development to full stack engineering, I specialize in React and Django and have instructed over 1200 students in the fields of audio and software engineering during my 8 years of tenure in higher education. My passion for music, technology and teaching brings a structured and creative approach that results in innovative solutions.
+summary: With over 12 years of experience ranging from web development to full stack engineering, I specialize in React and Django and have instructed over 1200 students in the fields of audio and software engineering during my 8 years in higher education. My passion for music, technology and teaching brings a structured and creative approach that results in innovative solutions.
 
 experience:
   - position: Instructor of Software Development
@@ -18,9 +18,38 @@ experience:
     start_date: 2022-04-11
     end_date: 2024-02-19
     responsibilities:
-      - Led classes of 5-15 students on databases, backends, frontends & full stack dev.
-      - Developed & maintained course content for all mentioned technologies.
-      - Spearheaded four course modules on React, including a 26-video tutorial series.
+      - Outlined and initiated the restructuring of a monolithic full-stack course into a focused, modular course hierarchy, resulting in a 10% increase to enrollments through wider variety and affordability.
+      - Designed a comprehensive React course that introduces students to full-stack React through 8 lectures, a 25-video tutorial series and 6 projects, improving student outcomes by 25%.
+      - Collaborated on the development of a C#/ASP.NET curriculum aimed at boosting student comprehension of OOP principles, data structures, MVC patterns and REST APIs.
+      - Wrote and produced educational shorts showcasing "pro tips" on best practices and improving worflows, that resulted in a 30% increase in engagement on LinkedIn and TikTok.
+  - position: Stage Manager & Monitor Engineer
+    company: LANCO Music (Band)
+    location: Nashville, TN
+    start_date: 2017-11-04
+    end_date: 2022-02-11
+    responsibilities:
+      - Worked directly with artist and tour management to organize support for A-list touring acts such as Luke Combs, Dierks Bentley, Miranda Lambert and Brothers Osborne.
+      - Designed, built and operated a redundant backing track system and its MIDI control network, improving stage operations and preventing dropouts during performances.
+      - Managed and maintained a 56-input split audio system for the monitor console, 6 channels of wireless in-ear monitoring and 6 wireless instruments.
+  - position: Freelance Artist Production & Management
+    company: Self Employment
+    location: Madison, WI
+    start_date: 2011-12-01
+    end_date: 
+    responsibilities:
+      - Co-created and produced 31 episodes of "Crusty Adventures" with Brett Newski, a travel mockumentary series showcasing life as a touring musician mixed with skits and misadventures.
+      - Volunteered as a technical director for the Steel Bridge Songfest from 2007-2021, managing live and studio production for over 200 artists, including Pat MacDonald and Jackson Browne, during three separate weeklong songwriting events annually.
+      - Web development and content management for music artists such as Geri X, Genevieve Heyward and Brett Newski, focused on web traffic and social media impressions that resulted in increased merch and ticket sales.
+      - Tour and production management for various regional and international artists that included 18 tours in the US, 4 in Europe and 1 in Australia, dramatically improving tour organization and live production.
+  - position: Instructor of Audio Engineering
+    company: Madison Media Institute
+    location: Madison, WI
+    start_date: 2010-02-01
+    end_date: 2015-05-26
+    responsibilities:
+      - Initiated, developed and administered curriculum for two live sound courses, resulting in an 18% increase in placement and brought greater community engagement by providing PA systems and students to local events.
+      - Leveraged modern tech to migrate the entire audio engineering curriculum to paperless using a Moodle LMS, drastically reducing waste from paper and printers.
+      - Booked local and national bands for 8-hour studio recording classes and supervised their production in 3 separate studios, expanding the network and visibility of the school.
 
 education:
   - degree: Bachelor of Science in Entertainment & Media Business
@@ -49,6 +78,8 @@ skills:
       proficiency: 5
     - name: C#
       proficiency: 4
+    - name: TypeScript
+      proficiency: 4
     - name: SQL
       proficiency: 4
     - name: Java
@@ -76,21 +107,32 @@ skills:
     - name: Kubernetes 
       proficiency: 2.5
 
+projects:
+  - name: indietour
+    description: A tour management web app for independent bands & artists, built with Next.js, Django & SQL, and deployed on GCP via Docker and Jenkins.
+    links: 
+      - name: Website
+        link: https://indietour.org
+      - name: Frontend Repo
+        link: https://github.com/dstoffels/indietour-client
+      - name: Backend Repo
+        link: https://github.com/dstoffels/indietour-api
+
 certifications:
   - name: Full Stack Software Development 
     institution: devCodeCamp
     date: 2022-04-11
-    description: A comprehensive 16-week bootcamp covering Python & Django REST APIs with SQL databases, and basic web development up to React MPAs with JWT authentication.
+    description: A 16-week bootcamp covering Python & Django REST APIs with SQL databases, and basic web development up to React MPAs with JWT authentication.
 
 achievements:
-  - title: Optimized React Course
-    description: Spearheaded the refactoring of a React course that led to a 25% increase in student project completion.
-    year: 2023
-    company: devCodeCamp
   - title: Modularized Software Curriculum
     description: Restructured a software development program into a decoupled course heirarchy, boosting sales 10% by offering more affordable options.
-    year: 2023
     company: devCodeCamp
+    year: 2023
+  - title: Optimized React Course
+    description: Spearheaded the refactoring of a React course that led to a 25% increase in student project completion.
+    company: devCodeCamp
+    year: 2023
   - title: Enhanced Social Media Content
     description: Produced educational and testimonial video content for social media, improving impressions by 30%.
     year: 2022
