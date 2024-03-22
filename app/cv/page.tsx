@@ -12,6 +12,8 @@ import { CgWebsite } from 'react-icons/cg';
 import DownloadBtn from './DownloadBtn';
 import Project, { CVProject } from './Project';
 
+const BASE_URL = process.env.BASE_URL;
+
 const CVPage = ({}) => {
 	const cvFile = fs.readFileSync('./data/cv.yaml', 'utf-8');
 	const data = yaml.parse(cvFile) as CVData;
@@ -85,7 +87,7 @@ const CVPage = ({}) => {
 				</div>
 				<div className="w-1/3 p-10 bg-sky-900 text-white">
 					<img
-						src="http://localhost:3000/images/danimal-sq.png"
+						src={`${BASE_URL}/images/danimal-sq.png`}
 						alt="Image of Dan Stoffels with a cat"
 						className="h-32 mx-auto mb-8 rounded-md"
 					/>
