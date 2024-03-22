@@ -1,0 +1,16 @@
+education:
+  - degree: "Bachelor of Science in Entertainment & Media Business"
+    institution: "Madison Media Institute"
+    year_completed: 2014
+    gpa: 3.6
+    tags: ["Business", "Entertainment", "Media"]
+  - degree: "Associate of Arts in Recording & Music Technology"
+    institution: "Madison Media Institute"
+    year_completed: 2007
+    gpa: 3.8
+    tags: ["Audio Engineering", "Music Technology"]
+  - certificate: "Full Stack Software Development"
+    institution: "devCodeCamp"
+    year_completed: 2022
+    gpa: 4.0
+    tags: ["Software Development", "Web Development", "Full Stack"]
