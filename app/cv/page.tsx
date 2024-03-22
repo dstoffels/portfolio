@@ -11,7 +11,6 @@ import { MdEmail, MdLocalPhone, MdLocationPin } from 'react-icons/md';
 import { CgWebsite } from 'react-icons/cg';
 import DownloadBtn from './DownloadBtn';
 import Project, { CVProject } from './Project';
-import { generatePDF } from './actions';
 
 const CVPage = ({}) => {
 	const cvFile = fs.readFileSync('./data/cv.yaml', 'utf-8');
@@ -109,7 +108,7 @@ const CVPage = ({}) => {
 					<Section heading="Certifications">{certifications}</Section>
 				</div>
 			</div>
-			<DownloadBtn onClick={generatePDF} />
+			<DownloadBtn />
 		</div>
 	);
 };

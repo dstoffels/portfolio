@@ -3,7 +3,7 @@
 // import jsPDF from 'jspdf';
 // import html2canvas from 'html2canvas';
 
-const DownloadBtn = ({ onClick }: DownloadBtnProps) => {
+const DownloadBtn = ({}: DownloadBtnProps) => {
 	// const generatePDF = async () => {
 	// const element = document.getElementById('cv') as HTMLElement;
 	// const originalTransform = element.style.transform;
@@ -60,9 +60,7 @@ const DownloadBtn = ({ onClick }: DownloadBtnProps) => {
 
 export default DownloadBtn;
 
-export type DownloadBtnProps = {
-	onClick: (cvElement: string) => Promise<void>;
-};
+export type DownloadBtnProps = {};
 
 function deepCloneWithStyles(originalElement: HTMLElement) {
 	const clone = originalElement.cloneNode(true) as HTMLElement;
