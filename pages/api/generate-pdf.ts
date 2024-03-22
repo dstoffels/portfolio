@@ -1,16 +1,16 @@
+'use server';
+
 import { NextApiRequest, NextApiResponse } from 'next';
-('use server');
-import puppeteer from 'puppeteer';
+import Chromium from 'chrome-aws-lambda';
 
-export async function generatePDF(cvElement: string) {}
-
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function generatePDF(req: NextApiRequest, res: NextApiResponse) {
+	const puppeteer = Chromium.puppeteer;
 	const browser = await puppeteer.launch();
 	const page = await browser.newPage();
 
 	await page.setContent(req.body, { waitUntil: 'networkidle0' });
 	const pdfBuffer = await page.pdf({
-		format: 'A4',
+		format: 'a4',
 		printBackground: true,
 		pageRanges: '1',
 		scale: 1,

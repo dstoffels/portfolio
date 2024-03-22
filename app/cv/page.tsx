@@ -65,9 +65,9 @@ const CVPage = ({}) => {
 							)}
 
 							{data.website && (
-								<a href={data.website} target="_blank" className="mr-4">
+								<a href={data.website.link} className="mr-4">
 									<CgWebsite className="text-sky-700 mr-1 inline align-middle" />
-									<span className="text-xs align-middle">{data.website}</span>
+									<span className="text-xs align-middle">{data.website.title}</span>
 								</a>
 							)}
 
@@ -123,7 +123,7 @@ export type CVData = {
 	email: string;
 	phone: string;
 	location: string;
-	website: string;
+	website: { title: string; link: string };
 	socials: { linkedin: string; facebook: string; instagram: string };
 	summary: string;
 	experience: CVExperience[];

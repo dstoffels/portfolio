@@ -3,7 +3,9 @@ subtext: Full Stack Developer | React Specialist | Django Specialist
 email: dan.stoffels@gmail.com
 phone: 1-615-974-2405
 location: Nashville, TN
-website: https://indietour.org
+website: 
+  title: Portfolio
+  link: https://danostoffels.me
 socials:
   linkedin: https://www.linkedin.com/in/danstoffels/
   facebook: 
