@@ -65,7 +65,7 @@ export type DownloadBtnProps = {
 };
 
 function deepCloneWithStyles(originalElement: HTMLElement) {
-	const clone = originalElement.cloneNode(true);
+	const clone = originalElement.cloneNode(true) as HTMLElement;
 
 	const rules = extractCSSRules();
 
