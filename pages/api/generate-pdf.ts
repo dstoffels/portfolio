@@ -1,7 +1,7 @@
 'use server';
 
 import { NextApiRequest, NextApiResponse } from 'next';
-import chromium from '@sparticuz/chromium';
+import chromium from '@sparticuz/chromium-min';
 import puppeteerCore from 'puppeteer-core';
 import puppeteer from 'puppeteer';
 
@@ -12,7 +12,7 @@ export default async function generatePDF(req: NextApiRequest, res: NextApiRespo
 		browser = await puppeteer.launch();
 	} else {
 		browser = await puppeteerCore.launch({
-			executablePath: await chromium.executablePath,
+			executablePath: await chromium.executablePath(),
 			args: chromium.args,
 			headless: false,
 		});
