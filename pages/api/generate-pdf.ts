@@ -12,7 +12,9 @@ export default async function generatePDF(req: NextApiRequest, res: NextApiRespo
 		browser = await puppeteer.launch();
 	} else {
 		browser = await puppeteerCore.launch({
-			executablePath: await chromium.executablePath(),
+			executablePath: await chromium.executablePath(
+				'https://github.com/Sparticuz/chromium/releases/download/v119.0.2/chromium-v119.0.2-pack.tar',
+			),
 			args: chromium.args,
 			headless: false,
 		});
