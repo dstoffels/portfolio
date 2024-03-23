@@ -8,6 +8,9 @@
 		"start": "next start",
 		"lint": "next lint"
 	},
+	"engines": {
+		"node": ">=14"
+	},
 	"dependencies": {
 		"chrome-aws-lambda": "10.1.0",
 		"html2canvas": "^1.4.1",
