@@ -16,8 +16,8 @@ import DevUpdater from './DevUpdater';
 
 const BASE_URL = process.env.BASE_URL;
 
-const CVPage = async ({}) => {
-	let data = await fetchCVData();
+const CVPage = ({}) => {
+	let data = fetchCVData();
 
 	const experience = data.experience.map((xp, i) => <XP key={`xp-${i}`} xp={xp} />);
 	const education = data.education.map((e, i) => <Education key={`ed-${i}`} education={e} />);
