@@ -7,12 +7,12 @@ import Skill from './Skill';
 import Education from './Education';
 import P from '@/components/P';
 import Cert from './Cert';
-import { MdEmail, MdLocalPhone, MdLocationPin } from 'react-icons/md';
-import { CgWebsite } from 'react-icons/cg';
+
 import DownloadBtn from './DownloadBtn';
 import Project from './Project';
 import { fetchCVData } from './actions';
 import DevUpdater from './DevUpdater';
+import CVHeader from './CVHeader';
 
 const BASE_URL = process.env.BASE_URL;
 
@@ -46,40 +46,7 @@ const CVPage = ({}) => {
 		<div className="my-2 mx-auto">
 			<div className="flex overflow-hidden aspect-pdf w-5xl print:" id="cv">
 				<div className="w-2/3 p-10 bg-white text-black">
-					<header className="mb-8 text-right">
-						<h1 className="text-4xl font-semibold">{data.name}</h1>
-						<p className="text-lg text-orange-600">{data.subtext}</p>
-
-						<div className="pb-2">
-							{data.email && (
-								<span className="mr-4 pb-2">
-									<MdEmail className="text-sky-700 mr-1 inline align-middle" />
-									<span className="text-xs align-middle">{data.email}</span>
-								</span>
-							)}
-
-							{data.phone && (
-								<span className="mr-4">
-									<MdLocalPhone className="text-sky-700 mr-1 inline align-middle" />
-									<span className="text-xs align-middle">{data.phone}</span>
-								</span>
-							)}
-
-							{data.website && (
-								<a href={data.website.link} className="mr-4">
-									<CgWebsite className="text-sky-700 mr-1 inline align-middle" />
-									<span className="text-xs align-middle">{data.website.title}</span>
-								</a>
-							)}
-
-							{data.location && (
-								<span className="mr-4">
-									<MdLocationPin className="text-sky-700 mr-1 inline align-middle" />
-									<span className="text-xs align-middle">{data.location}</span>
-								</span>
-							)}
-						</div>
-					</header>
+					<CVHeader data={data} />
 					<Section heading="Summary">
 						<P>{data.summary}</P>
 					</Section>

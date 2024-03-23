@@ -12,7 +12,7 @@ export type CVData = {
 	phone: string;
 	location: string;
 	website: { title: string; link: string };
-	socials: { linkedin: string; facebook: string; instagram: string };
+	socials: { linkedin: string; facebook: string; instagram: string; github: string };
 	summary: string;
 	experience: CVExperience[];
 	education: CVEducation[];

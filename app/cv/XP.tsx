@@ -35,7 +35,7 @@ const XP = ({ xp }: XPProps) => {
 					</div>
 				</div>
 				<div className="flex justify-between">
-					<h3 className="text-sm">{xp.company}</h3>
+					<h3 className="text-sm font-semibold">{xp.company}</h3>
 					<div className="">
 						<MdLocationPin className="text-sky-700 mr-1 inline" />
 						<P className="inline">{xp.location}</P>

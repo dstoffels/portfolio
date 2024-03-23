@@ -23,6 +23,8 @@ export default async function generatePDF(req: NextApiRequest, res: NextApiRespo
 
 		fs.writeFile('public/cv/dan-stoffels-cv.pdf', pdfBuffer, (err) => err && console.log(err));
 
+		console.log('CV PDF created');
+
 		res.status(201).send('CV PDF created');
 	} else {
 		res.status(400).send('Only available in development');
