@@ -1,13 +1,24 @@
 'use server';
 
 import { NextApiRequest, NextApiResponse } from 'next';
+import chromium from 'chrome-aws-lambda';
+import puppeteerCore from 'puppeteer-core';
 import puppeteer from 'puppeteer';
 
 export default async function generatePDF(req: NextApiRequest, res: NextApiResponse) {
-	const browser = await puppeteer.launch({
-		headless: true,
-		args: ['--no-sandbox', '--disable-setuid-sandbox'],
-	});
+	let browser;
+	const executablePath = await chromium.executablePath;
+
+	if (executablePath) {
+		browser = await puppeteerCore.launch({
+			executablePath,
+			args: chromium.args,
+			headless: false,
+		});
+	} else {
+		browser = await puppeteer.launch();
+	}
+
 	const page = await browser.newPage();
 
 	await page.setContent(req.body, { waitUntil: 'networkidle0' });
