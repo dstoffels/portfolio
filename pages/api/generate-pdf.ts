@@ -1,11 +1,12 @@
 'use server';
 
 import { NextApiRequest, NextApiResponse } from 'next';
-import Chromium from 'chrome-aws-lambda';
+import puppeteer from 'puppeteer';
 
 export default async function generatePDF(req: NextApiRequest, res: NextApiResponse) {
-	const browser = await Chromium.puppeteer.launch({
+	const browser = await puppeteer.launch({
 		headless: true,
+		args: ['--no-sandbox', '--disable-setuid-sandbox'],
 	});
 	const page = await browser.newPage();
 
