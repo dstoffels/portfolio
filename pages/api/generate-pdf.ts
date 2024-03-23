@@ -1,16 +1,30 @@
+'use server';
+
 import { NextApiRequest, NextApiResponse } from 'next';
-('use server');
+import chromium from '@sparticuz/chromium-min';
+import puppeteerCore from 'puppeteer-core';
 import puppeteer from 'puppeteer';
 
-export async function generatePDF(cvElement: string) {}
+export default async function generatePDF(req: NextApiRequest, res: NextApiResponse) {
+	let browser;
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-	const browser = await puppeteer.launch();
+	if (process.env.DEV) {
+		browser = await puppeteer.launch();
+	} else {
+		browser = await puppeteerCore.launch({
+			executablePath: await chromium.executablePath(
+				'https://github.com/Sparticuz/chromium/releases/download/v119.0.2/chromium-v119.0.2-pack.tar',
+			),
+			args: chromium.args,
+			headless: false,
+		});
+	}
+
 	const page = await browser.newPage();
 
 	await page.setContent(req.body, { waitUntil: 'networkidle0' });
 	const pdfBuffer = await page.pdf({
-		format: 'A4',
+		format: 'a4',
 		printBackground: true,
 		pageRanges: '1',
 		scale: 1,
