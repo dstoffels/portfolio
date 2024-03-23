@@ -1,22 +1,23 @@
-import yaml from 'yaml';
-import fs from 'fs';
+'use server';
+
 import Section from './Section';
-import XP, { CVExperience } from './XP';
-import Achievement, { CVAchievement } from './Achievement';
-import Skill, { CVSkill } from './Skill';
-import Education, { CVEducation } from './Education';
+import XP from './XP';
+import Achievement from './Achievement';
+import Skill from './Skill';
+import Education from './Education';
 import P from '@/components/P';
-import Cert, { CVCertification } from './Cert';
+import Cert from './Cert';
 import { MdEmail, MdLocalPhone, MdLocationPin } from 'react-icons/md';
 import { CgWebsite } from 'react-icons/cg';
 import DownloadBtn from './DownloadBtn';
-import Project, { CVProject } from './Project';
+import Project from './Project';
+import { fetchCVData } from './actions';
+import DevUpdater from './DevUpdater';
 
 const BASE_URL = process.env.BASE_URL;
 
 const CVPage = ({}) => {
-	const cvFile = fs.readFileSync('./data/cv.yaml', 'utf-8');
-	const data = yaml.parse(cvFile) as CVData;
+	let data = fetchCVData();
 
 	const experience = data.experience.map((xp, i) => <XP key={`xp-${i}`} xp={xp} />);
 	const education = data.education.map((e, i) => <Education key={`ed-${i}`} education={e} />);
@@ -110,32 +111,10 @@ const CVPage = ({}) => {
 					<Section heading="Certifications">{certifications}</Section>
 				</div>
 			</div>
-			<DownloadBtn />
+			<DownloadBtn baseUrl={process.env.BASE_URL as string} />
+			{process.env.DEV && <DevUpdater />}
 		</div>
 	);
 };
 
 export default CVPage;
-
-export type CVData = {
-	name: string;
-	subtext: string;
-	email: string;
-	phone: string;
-	location: string;
-	website: { title: string; link: string };
-	socials: { linkedin: string; facebook: string; instagram: string };
-	summary: string;
-	experience: CVExperience[];
-	education: CVEducation[];
-	skills: CVSkills;
-	certifications: CVCertification[];
-	achievements: CVAchievement[];
-	projects: CVProject[];
-};
-
-export type CVSkills = {
-	languages: CVSkill[];
-	frameworks: CVSkill[];
-	devops: CVSkill[];
-};
