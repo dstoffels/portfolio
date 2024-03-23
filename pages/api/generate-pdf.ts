@@ -1,22 +1,21 @@
 'use server';
 
 import { NextApiRequest, NextApiResponse } from 'next';
-import chromium from 'chrome-aws-lambda';
+import chromium from '@sparticuz/chromium';
 import puppeteerCore from 'puppeteer-core';
 import puppeteer from 'puppeteer';
 
 export default async function generatePDF(req: NextApiRequest, res: NextApiResponse) {
 	let browser;
-	const executablePath = await chromium.executablePath;
 
-	if (executablePath) {
+	if (process.env.DEV) {
+		browser = await puppeteer.launch();
+	} else {
 		browser = await puppeteerCore.launch({
-			executablePath,
+			executablePath: await chromium.executablePath,
 			args: chromium.args,
 			headless: false,
 		});
-	} else {
-		browser = await puppeteer.launch();
 	}
 
 	const page = await browser.newPage();
