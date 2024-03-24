@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
 	title: 'Dan O Stoffels',
-	description: 'A portfolio',
+	description: 'Full Stack Developer',
 };
 
 export default function RootLayout({
@@ -20,6 +20,7 @@ export default function RootLayout({
 			<body
 				className={`${inter.className} whitespace-pre-wrap font-inter antialiased lg:flex text-slate-500  from-slate-900 bg-gradient-to-tr to-black box-border`}
 			>
+				<link rel="shortcut icon" href="/images/danimal-sq.png" type="image/x-icon" />
 				<Header />
 				<main className="min-h-screen lg:w-3/5 py-16">{children}</main>
 			</body>
