@@ -9,7 +9,7 @@ const Header = () => {
 
 	return (
 		<div className="w-2/5">
-			<header className="py-16 pl-16 h-screen fixed top-0 w-2/5 items-center">
+			<header className="py-16 pl-16 h-screen fixed top-0 w-2/5 items-center flex flex-col">
 				<div className="mb-8">
 					<a href={'/'}>
 						<TextTicker
@@ -25,7 +25,7 @@ const Header = () => {
 					<NavLink href="#xp">xp</NavLink>
 					<NavLink href="#projects">My Work</NavLink>
 				</nav>
-				<footer className="text-3xl flex gap-8 items-center">
+				<footer className="text-3xl flex gap-8 items-end flex-1">
 					<SocialLink href={data.socials.github}>
 						<FaGithub />
 					</SocialLink>
