@@ -2,7 +2,10 @@ import { XpType } from './types';
 
 const HomeXP = ({ xp }: HomeXPProps) => {
 	const tags = xp.tags.map((t) => (
-		<span className="text-xs text-cyan-600 font-semibold bg-cyan-600/10 rounded-3xl px-3 py-1.5  text-nowrap">
+		<span
+			key={`tag-${t}`}
+			className="text-xs text-cyan-600 font-semibold bg-cyan-600/10 rounded-3xl px-3 py-1.5  text-nowrap"
+		>
 			{t}
 		</span>
 	));

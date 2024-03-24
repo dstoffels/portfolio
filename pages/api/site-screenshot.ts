@@ -31,7 +31,7 @@ export default async function fetchScreenshot(req: NextApiRequest, res: NextApiR
 				urls.map(async (url, i) => {
 					try {
 						const page = await browser.newPage();
-						await page.goto(url);
+						await page.goto(url, { waitUntil: 'networkidle0' });
 						const path = `thumb-${sanitizedUrls[i]}.png`;
 						await page.screenshot({ path: `public/images/${path}` });
 						await page.close();
