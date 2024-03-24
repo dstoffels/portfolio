@@ -18,9 +18,9 @@ export default async function Page({ searchParams }: HomePageProps) {
 		thumbnailPaths: string[];
 	};
 
-	// const projects = data.projects.map((p, i) => (
-	// 	<HomeProject project={p} src={thumbnailPaths[i]} key={`project-${i}`} />
-	// ));
+	const projects = data.projects.map((p, i) => (
+		<HomeProject project={p} src={thumbnailPaths[i]} key={`project-${i}`} />
+	));
 
 	return (
 		<div className="lg:w-2/3 p-4 mx-auto">
@@ -40,7 +40,7 @@ export default async function Page({ searchParams }: HomePageProps) {
 				</a>
 			</Section>
 			<Section id="projects" heading="Projects">
-				{/* {projects} */}
+				{projects}
 			</Section>
 			<footer className="text-sm text-slate-600">{data.footer}</footer>
 		</div>
