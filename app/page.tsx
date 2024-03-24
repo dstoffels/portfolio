@@ -10,17 +10,17 @@ export default async function Page({ searchParams }: HomePageProps) {
 
 	const xp = data.experience.map((xp, i) => <HomeXP xp={xp} key={`xp-${i}`} />);
 
-	const projectLinks = data.projects.map(
-		(p) => p.links.find((l) => l.name === 'Website')?.link as string,
-	);
+	// const projectLinks = data.projects.map(
+	// 	(p) => p.links.find((l) => l.name === 'Website')?.link as string,
+	// );
 
-	const { thumbnailPaths } = (await fetchSiteThumbnails(projectLinks)) as {
-		thumbnailPaths: string[];
-	};
+	// const { thumbnailPaths } = (await fetchSiteThumbnails(projectLinks)) as {
+	// 	thumbnailPaths: string[];
+	// };
 
-	const projects = data.projects.map((p, i) => (
-		<HomeProject project={p} src={thumbnailPaths[i]} key={`project-${i}`} />
-	));
+	// const projects = data.projects.map((p, i) => (
+	// 	<HomeProject project={p} src={thumbnailPaths[i]} key={`project-${i}`} />
+	// ));
 
 	return (
 		<div className="lg:w-2/3 p-4 mx-auto">
@@ -40,7 +40,7 @@ export default async function Page({ searchParams }: HomePageProps) {
 				</a>
 			</Section>
 			<Section id="projects" heading="Projects">
-				{projects}
+				{/* {projects} */}
 			</Section>
 			<footer className="text-sm text-slate-600">{data.footer}</footer>
 		</div>
