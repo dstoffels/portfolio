@@ -3,6 +3,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import puppeteer from 'puppeteer';
 import fs from 'fs';
+import { join } from 'path';
 
 export default async function fetchScreenshot(req: NextApiRequest, res: NextApiResponse) {
 	const { urls } = req.body as { urls: string[] };
@@ -19,7 +20,7 @@ export default async function fetchScreenshot(req: NextApiRequest, res: NextApiR
 			}),
 		);
 		const failed = results.filter((r) => r.success === false);
-		if (failed.length > 0) throw new Error(`Unable to find: ${failed[0].file}`);
+		if (failed.length > 0) throw new Error(`Unable to find a file`);
 		const thumbnailPaths = sanitizedUrls.map((url) => generateRelativePath(url));
 		res.status(200).send(JSON.stringify({ thumbnailPaths }));
 	} catch (error) {
@@ -65,5 +66,5 @@ function generateRelativePath(sanitizedUrl: string) {
 }
 
 function generateFullPath(sanitizedUrl: string) {
-	return `public/images/${generateFilename(sanitizedUrl)}`;
+	return join(process.cwd(), 'public', 'images', generateFilename(sanitizedUrl));
 }
