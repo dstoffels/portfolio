@@ -3,18 +3,11 @@ import { FaCode } from 'react-icons/fa';
 import { IoIosCalendar } from 'react-icons/io';
 import { MdLocationPin } from 'react-icons/md';
 import { XpType } from '../types';
+import { getMonth, getYear } from '@/utils/dateParser';
 
 const CVxp = ({ xp }: XPProps) => {
-	const startDate = new Date(xp.start_date);
-	const endDate = new Date(xp.end_date);
-
-	const startMonth = startDate.getMonth() + 1;
-	const endMonth = endDate.getMonth() + 1;
-
-	const start = (startMonth < 10 ? '0' + startMonth : startMonth) + '/' + startDate.getFullYear();
-	const end = xp.end_date
-		? (endMonth < 10 ? '0' + endMonth : endMonth) + '/' + endDate.getFullYear()
-		: 'present';
+	const start = getMonth(xp.start_date).numeric + '/' + getYear(xp.start_date);
+	const end = xp.end_date ? getMonth(xp.end_date).numeric + '/' + getYear(xp.end_date) : 'present';
 
 	const responsibilities = xp.responsibilities.map((r, i) => (
 		<div key={`res-${i}`} className="mb-0.5 pl-2 text-xs">

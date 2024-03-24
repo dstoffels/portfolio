@@ -2,17 +2,12 @@ import P from '@/components/P';
 import { IoIosCalendar } from 'react-icons/io';
 import { MdLocationPin } from 'react-icons/md';
 import { EducationType } from '../types';
+import { getMonth, getYear } from '@/utils/dateParser';
 
 const Education = ({ education }: EducationProps) => {
-	const startDate = new Date(education.start_date);
-	const endDate = new Date(education.end_date);
-
-	const startMonth = startDate.getMonth() + 1;
-	const endMonth = endDate.getMonth() + 1;
-
-	const start = (startMonth < 10 ? '0' + startMonth : startMonth) + '/' + startDate.getFullYear();
+	const start = getMonth(education.start_date).numeric + '/' + getYear(education.start_date);
 	const end = education.end_date
-		? (endMonth < 10 ? '0' + endMonth : endMonth) + '/' + endDate.getFullYear()
+		? getMonth(education.end_date).numeric + '/' + getYear(education.end_date)
 		: 'present';
 
 	return (

@@ -28,6 +28,8 @@ export type XpType = {
 	start_date: string;
 	end_date: string;
 	responsibilities: string[];
+	description: string;
+	tags: string[];
 };
 
 export type EducationType = {

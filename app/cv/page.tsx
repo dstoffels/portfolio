@@ -10,14 +10,14 @@ import Cert from './Cert';
 
 import DownloadBtn from './DownloadBtn';
 import Project from './Project';
-import { fetchCVData } from './actions';
+import { fetchCVData } from '../actions';
 import DevUpdater from './DevUpdater';
 import CVHeader from './CVHeader';
 
 const BASE_URL = process.env.BASE_URL;
 
-const CVPage = ({}) => {
-	let data = fetchCVData();
+const CVPage = async ({}) => {
+	let data = await fetchCVData();
 
 	const experience = data.experience.map((xp, i) => <CVxp key={`xp-${i}`} xp={xp} />);
 	const education = data.education.map((e, i) => <Education key={`ed-${i}`} education={e} />);
