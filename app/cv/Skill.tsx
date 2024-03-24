@@ -1,5 +1,6 @@
 import P from '@/components/P';
 import { IoMdStar, IoMdStarHalf, IoMdStarOutline } from 'react-icons/io';
+import { SkillType } from '../types';
 
 const Skill = ({ skill }: SkillProps) => {
 	const stars = generateStarIcons(skill.proficiency);
@@ -15,12 +16,7 @@ const Skill = ({ skill }: SkillProps) => {
 export default Skill;
 
 export type SkillProps = {
-	skill: CVSkill;
-};
-
-export type CVSkill = {
-	name: string;
-	proficiency: number;
+	skill: SkillType;
 };
 
 function generateStarIcons(proficiency: number) {

@@ -1,5 +1,6 @@
 import P from '@/components/P';
 import { IoMdLink } from 'react-icons/io';
+import { ProjectType } from '../types';
 
 const Project = ({ project }: ProjectProps) => {
 	const links = project.links.map((link, i) => (
@@ -26,11 +27,5 @@ const Project = ({ project }: ProjectProps) => {
 export default Project;
 
 export type ProjectProps = {
-	project: CVProject;
-};
-
-export type CVProject = {
-	name: string;
-	description: string;
-	links: { name: string; link: string }[];
+	project: ProjectType;
 };

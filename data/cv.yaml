@@ -1,4 +1,6 @@
-name: Dan Stoffels
+name: Dan O Stoffels
+subtitle: Full Stack Developer
+tagline: I create inuitive and comprehensive software solutions. 
 subtext: Full Stack Developer | React Specialist | Django Specialist
 email: dan.stoffels@gmail.com
 phone: 1-615-974-2405
@@ -12,7 +14,15 @@ socials:
   instagram: 
   github: https://github.com/dstoffels
 
-summary: With over 12 years of experience ranging from web development to full stack engineering, I specialize in React and Django. I have instructed over 1000 students in the fields of audio and software engineering during my 8 years in higher education. My passion for music, technology and teaching brings a structured and creative approach that results in innovative solutions.
+about: |+
+  Back in 2012, I decided to try my hand at creating custom Tumblr themes and tumbled head first into the rabbit hole of coding and web development. Fast-forward to today, and I've had the privilege of building software for an advertising agency, a start-up, a huge corporation, and a digital product studio.
+
+  My main focus these days is building accessible user interfaces for our customers at Klaviyo. I most enjoy building software in the sweet spot where design and engineering meet — things that look good but are also built well under the hood. In my free time, I've also released an online video course that covers everything you need to know to build a web app with the Spotify API.
+
+  When I'm not at the computer, I'm usually rock climbing, reading, hanging out with my wife and two cats, or running around Hyrule searching for Korok seeds.
+
+summary: |+ 
+  With over 12 years of experience ranging from web development to full stack engineering, I specialize in React and Django. I have instructed over 1000 students in the fields of audio and software engineering during my 8 years in higher education. My passion for music, technology and teaching brings a structured and creative approach that results in innovative solutions.
 
 experience:
   - position: Instructor of Software Development
@@ -26,6 +36,15 @@ experience:
       - Collaborated on the development of a C#/ASP.NET curriculum aimed at boosting student comprehension of OOP principles, data structures, MVC patterns and REST APIs.
       - Wrote and produced educational shorts, showcasing "pro tips" on best practices and improving worflows, that resulted in a 30% increase in engagement on LinkedIn and TikTok.
       - Trained over 300 students in full-stack software development and DevOps with tech stacks such as MERN, Django, Flask, ASP.NET, Spring, MySQL, Docker, Jenkins, Kubernetes and AWS.
+    tags:
+      - MERN Stack
+      - Python
+      - C#
+      - Java
+      - Django
+      - ASP.NET
+      - Flask
+      - SQL
   - position: Stage Manager and Monitor Engineer
     company: LANCO Music (Band)
     location: Nashville, TN
@@ -34,7 +53,6 @@ experience:
     responsibilities:
       - Worked directly with artist and tour management to organize support for A-list touring acts such as Luke Combs, Dierks Bentley, Miranda Lambert and Brothers Osborne.
       - Designed, built and operated a redundant backing track system and its MIDI control network, improving stage operations and preventing dropouts during performances.
-      - Managed and maintained a 56-input split audio system for the monitor console, 6 channels of wireless in-ear monitoring and 6 wireless instruments.
       - Managed stage and monitors for over 400 shows internationally, ranging from mid-sized clubs to A-list arena tours, fairs and large festivals including Stagecoach and C2C.
   - position: Freelance Artist Production and Management
     company: Self Employment
@@ -45,7 +63,6 @@ experience:
       - Co-created and produced 31 episodes of "Crusty Adventures" with Brett Newski, a travel mockumentary series showcasing life as a touring musician mixed with skits and misadventures.
       - Volunteered as a technical director for the Steel Bridge Songfest from 2007-2021, managing live and studio production for over 200 artists, including Pat MacDonald and Jackson Browne, during three separate weeklong songwriting events annually.
       - Web development and content management for music artists such as Geri X, Genevieve Heyward and Brett Newski, focused on web traffic and social media impressions that resulted in increased merch and ticket sales.
-      - Tour and production management for various regional and international artists that included 18 tours in the US, 4 in Europe and 1 in Australia, dramatically improving tour organization and live production.
   - position: Instructor of Audio Engineering
     company: Madison Media Institute
     location: Madison, WI
@@ -53,11 +70,15 @@ experience:
     end_date: 2015-05-26
     responsibilities:
       - Initiated, developed and administered curriculum for two live sound courses, resulting in an 18% increase in placement and brought greater community engagement by providing PA systems and students to local events.
-      - Leveraged modern tech to migrate the entire audio engineering curriculum to paperless using a Moodle LMS, drastically reducing waste from paper and printers.
       - Booked local and national bands for 8-hour studio recording classes and supervised their production in 3 separate studios, expanding the network and visibility of the school.
       - Graduated more than 700 students in audio engineering, with training in live sound, studio production and Pro Tools expert level certification.
 
 education:
+  - degree: Certificate in Full Stack Software Development
+    institution: devCodeCamp
+    start_date: 2021-12-01
+    end_date: 2022-04-11
+    location: Milwaukee, WI
   - degree: Bachelor of Science in Entertainment and Media Business
     institution: Madison Media Institute
     start_date: 2013-02-01
@@ -151,3 +172,6 @@ achievements:
     description: Produced educational and testimonial video content for social media, improving impressions by 30%.
     year: 2022
     company: devCodeCamp
+
+footer: |+
+  Designed in Whimsical, coded in Visual Studio Code with all content parsed from yaml. Built using Next.js and Tailwind CSS, deployed on Vercel.
