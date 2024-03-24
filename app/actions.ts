@@ -6,6 +6,7 @@ import { ChatMessage } from './types';
 import yaml from 'yaml';
 import fs from 'fs';
 import { CVData } from '@/app/types';
+import path from 'path';
 
 const openai = new OpenAI();
 
@@ -44,7 +45,8 @@ export async function sleep(ms: number) {
 }
 
 export async function fetchCVData() {
-	const cvFile = fs.readFileSync(`./data/cv.yaml`, 'utf-8');
+	const filePath = path.join(process.cwd(), 'data', 'cv.yaml');
+	const cvFile = fs.readFileSync(filePath, 'utf-8');
 	const data = yaml.parse(cvFile, { toStringDefaults: {} }) as CVData;
 
 	return data;
