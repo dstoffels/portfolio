@@ -6,9 +6,7 @@ import fs from 'fs';
 
 export default async function generatePDF(req: NextApiRequest, res: NextApiResponse) {
 	if (process.env.DEV) {
-		let browser;
-
-		browser = await puppeteer.launch();
+		const browser = await puppeteer.launch();
 
 		const page = await browser.newPage();
 

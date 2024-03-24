@@ -11,15 +11,15 @@ website:
 socials:
   linkedin: https://www.linkedin.com/in/danstoffels/
   facebook: 
-  instagram: 
+  instagram: https://www.instagram.com/danostoffels/
   github: https://github.com/dstoffels
 
 about: |+
-  Back in 2012, I decided to try my hand at creating custom Tumblr themes and tumbled head first into the rabbit hole of coding and web development. Fast-forward to today, and I've had the privilege of building software for an advertising agency, a start-up, a huge corporation, and a digital product studio.
+  Back in 2011, I began developing Wordpress sites for local artists as a hobby and found I was well suited for the dev life. After several years of web development, I tried my hand in the gaming world with C# and Unity. Now I have two years of tenure teaching full-stack engineering at a bootcamp and several deployed projects under my belt.
 
-  My main focus these days is building accessible user interfaces for our customers at Klaviyo. I most enjoy building software in the sweet spot where design and engineering meet — things that look good but are also built well under the hood. In my free time, I've also released an online video course that covers everything you need to know to build a web app with the Spotify API.
+  I derive enjoyment working with data and building systems that automate or manipulate it. I love working with Django and React, taking great care to write clean, efficient and extendable code. I've also produced a complete React course that includes a video tutorial series along with lectures and projects.
 
-  When I'm not at the computer, I'm usually rock climbing, reading, hanging out with my wife and two cats, or running around Hyrule searching for Korok seeds.
+  When I'm not putting miles on the keyboard, I'm traveling the world in a camper van I built out, hiking, cycling or playing drums for my bands.
 
 summary: |+ 
   With over 12 years of experience ranging from web development to full stack engineering, I specialize in React and Django. I have instructed over 1000 students in the fields of audio and software engineering during my 8 years in higher education. My passion for music, technology and teaching brings a structured and creative approach that results in innovative solutions.
@@ -36,6 +36,8 @@ experience:
       - Collaborated on the development of a C#/ASP.NET curriculum aimed at boosting student comprehension of OOP principles, data structures, MVC patterns and REST APIs.
       - Wrote and produced educational shorts, showcasing "pro tips" on best practices and improving worflows, that resulted in a 30% increase in engagement on LinkedIn and TikTok.
       - Trained over 300 students in full-stack software development and DevOps with tech stacks such as MERN, Django, Flask, ASP.NET, Spring, MySQL, Docker, Jenkins, Kubernetes and AWS.
+    description: >
+      Trained over 300 students in full-stack development and DevOps. Restuctured curriculum into modular courses to boost sales through variety. Designed the React course that included a 25-part tutorial series. Produced social media shorts on industry best practices to improve engagement.
     tags:
       - MERN Stack
       - Python
@@ -54,6 +56,12 @@ experience:
       - Worked directly with artist and tour management to organize support for A-list touring acts such as Luke Combs, Dierks Bentley, Miranda Lambert and Brothers Osborne.
       - Designed, built and operated a redundant backing track system and its MIDI control network, improving stage operations and preventing dropouts during performances.
       - Managed stage and monitors for over 400 shows internationally, ranging from mid-sized clubs to A-list arena tours, fairs and large festivals including Stagecoach and C2C.
+    description: >
+      Operated monitors for over 400 shows internationally. Worked on A-list tours as support for Luke Combs, Dierks Bentley, Miranda Lambert and more. Built a redundant backing tracks system that prevented dropouts during shows.
+    tags:
+      - Audio
+      - Tour Management
+      - Production Management
   - position: Freelance Artist Production and Management
     company: Self Employment
     location: Madison, WI
@@ -63,6 +71,16 @@ experience:
       - Co-created and produced 31 episodes of "Crusty Adventures" with Brett Newski, a travel mockumentary series showcasing life as a touring musician mixed with skits and misadventures.
       - Volunteered as a technical director for the Steel Bridge Songfest from 2007-2021, managing live and studio production for over 200 artists, including Pat MacDonald and Jackson Browne, during three separate weeklong songwriting events annually.
       - Web development and content management for music artists such as Geri X, Genevieve Heyward and Brett Newski, focused on web traffic and social media impressions that resulted in increased merch and ticket sales.
+    description: >
+      Produced a travel mockumentary series on life as a touring musician. Volunteered as technical director for the Steel Bridge Songfest for 14 years. Created websites and content for artists, projects and festivals that boosted merch and ticket sales.
+    tags:
+      - HTML
+      - CSS
+      - JavaScript
+      - Wordpress
+      - Audio
+      - Tour Management
+      - Project Management
   - position: Instructor of Audio Engineering
     company: Madison Media Institute
     location: Madison, WI
@@ -72,6 +90,13 @@ experience:
       - Initiated, developed and administered curriculum for two live sound courses, resulting in an 18% increase in placement and brought greater community engagement by providing PA systems and students to local events.
       - Booked local and national bands for 8-hour studio recording classes and supervised their production in 3 separate studios, expanding the network and visibility of the school.
       - Graduated more than 700 students in audio engineering, with training in live sound, studio production and Pro Tools expert level certification.
+    description: >
+      Graduated over 700 students in the audio engineering associates program. Developed curriculum for two live sound courses, boosting placement and visibility. Booked bands for the studio recording classes, expanding the company's network and outreach.
+    tags:
+      - Higher Education
+      - Pro Tools
+      - Audio
+      - Curriculum Development
 
 education:
   - degree: Certificate in Full Stack Software Development
@@ -151,7 +176,11 @@ projects:
         link: https://danostoffels.me
       - name: Repository
         link: https://github.com/dstoffels/portfolio
-
+  - name: "Genevieve Heyward"
+    description: An artist site built with Squarespace supplemented with some of my JavaScript widgets. 
+    links: 
+      - name: Website
+        link: https://genevieveheyward.com
 
 certifications:
   - name: Full Stack Software Development 
@@ -174,4 +203,6 @@ achievements:
     company: devCodeCamp
 
 footer: |+
-  Designed in Whimsical, coded in Visual Studio Code with all content parsed from yaml. Built using Next.js and Tailwind CSS, deployed on Vercel.
+  Designed in Whimsical, coded in Visual Studio Code with all content parsed from yaml. 
+  Built using Next.js and Tailwind CSS
+  Deployed on Vercel.

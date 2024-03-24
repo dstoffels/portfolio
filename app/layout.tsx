@@ -18,10 +18,10 @@ export default function RootLayout({
 	return (
 		<html lang="en" className="scroll-smooth">
 			<body
-				className={`${inter.className} whitespace-pre-wrap font-inter text-slate-400 antialiased flex from-slate-900 bg-gradient-to-tr to-black box-border`}
+				className={`${inter.className} whitespace-pre-wrap font-inter antialiased lg:flex text-slate-500  from-slate-900 bg-gradient-to-tr to-black box-border`}
 			>
 				<Header />
-				<main className="min-h-screen w-3/5 pt-16">{children}</main>
+				<main className="min-h-screen lg:w-3/5 py-16">{children}</main>
 			</body>
 		</html>
 	);

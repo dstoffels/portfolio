@@ -38,3 +38,21 @@ export async function fetchMsgs(thread_id: string) {
 export async function sleep(ms: number) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+export async function fetchSiteThumbnails(urls: string[]) {
+	try {
+		const response = await fetch(`${process.env.BASE_URL}/api/site-screenshot`, {
+			method: 'POST',
+			cache: 'no-cache',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ urls }),
+		});
+
+		const body = (await response.json()) as { thumbnailPaths: string[] };
+
+		return body;
+	} catch (error) {
+		console.log('error in fetchSiteThumbnail:', error);
+		return { thumbnailPaths: [''] };
+	}
+}
