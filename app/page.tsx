@@ -14,9 +14,9 @@ export default async function Page({ searchParams }: HomePageProps) {
 		(p) => p.links.find((l) => l.name === 'Website')?.link as string,
 	);
 
-	// const { thumbnailPaths } = (await fetchSiteThumbnails(projectLinks)) as {
-	// 	thumbnailPaths: string[];
-	// };
+	const { thumbnailPaths } = (await fetchSiteThumbnails(projectLinks)) as {
+		thumbnailPaths: string[];
+	};
 
 	// const projects = data.projects.map((p, i) => (
 	// 	<HomeProject project={p} src={thumbnailPaths[i]} key={`project-${i}`} />
