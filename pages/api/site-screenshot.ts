@@ -20,8 +20,7 @@ export default async function fetchScreenshot(req: NextApiRequest, res: NextApiR
 			}),
 		);
 		const failed = results.filter((r) => r.success === false);
-		const failedFile = failed[0] ? failed[0].file : 'NO FILE';
-		if (failed.length > 0) throw new Error(`Unable to find: ${failedFile}`);
+		if (failed.length > 0) throw new Error(`Unable to find a file`);
 		const thumbnailPaths = sanitizedUrls.map((url) => generateRelativePath(url));
 		res.status(200).send(JSON.stringify({ thumbnailPaths }));
 	} catch (error) {
