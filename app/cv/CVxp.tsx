@@ -2,8 +2,9 @@ import P from '@/components/P';
 import { FaCode } from 'react-icons/fa';
 import { IoIosCalendar } from 'react-icons/io';
 import { MdLocationPin } from 'react-icons/md';
+import { XpType } from '../types';
 
-const XP = ({ xp }: XPProps) => {
+const CVxp = ({ xp }: XPProps) => {
 	const startDate = new Date(xp.start_date);
 	const endDate = new Date(xp.end_date);
 
@@ -35,7 +36,7 @@ const XP = ({ xp }: XPProps) => {
 					</div>
 				</div>
 				<div className="flex justify-between">
-					<h3 className="text-sm">{xp.company}</h3>
+					<h3 className="text-sm font-semibold">{xp.company}</h3>
 					<div className="">
 						<MdLocationPin className="text-sky-700 mr-1 inline" />
 						<P className="inline">{xp.location}</P>
@@ -47,17 +48,8 @@ const XP = ({ xp }: XPProps) => {
 	);
 };
 
-export default XP;
-
-export type CVExperience = {
-	position: string;
-	company: string;
-	location: string;
-	start_date: string;
-	end_date: string;
-	responsibilities: string[];
-};
+export default CVxp;
 
 export type XPProps = {
-	xp: CVExperience;
+	xp: XpType;
 };

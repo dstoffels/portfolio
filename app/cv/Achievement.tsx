@@ -1,4 +1,5 @@
 import P from '@/components/P';
+import { AchievementType } from '../types';
 
 const Achievement = ({ achievement }: AchievementsProps) => {
 	return (
@@ -12,12 +13,5 @@ const Achievement = ({ achievement }: AchievementsProps) => {
 export default Achievement;
 
 export type AchievementsProps = {
-	achievement: CVAchievement;
-};
-
-export type CVAchievement = {
-	title: string;
-	description: string;
-	year: number;
-	company: string;
+	achievement: AchievementType;
 };

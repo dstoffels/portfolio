@@ -1,6 +1,7 @@
 import P from '@/components/P';
 import { IoIosCalendar } from 'react-icons/io';
 import { MdLocationPin } from 'react-icons/md';
+import { EducationType } from '../types';
 
 const Education = ({ education }: EducationProps) => {
 	const startDate = new Date(education.start_date);
@@ -38,14 +39,6 @@ const Education = ({ education }: EducationProps) => {
 
 export default Education;
 
-export type CVEducation = {
-	degree: string;
-	institution: string;
-	start_date: string;
-	end_date: string;
-	location: string;
-};
-
 export type EducationProps = {
-	education: CVEducation;
+	education: EducationType;
 };

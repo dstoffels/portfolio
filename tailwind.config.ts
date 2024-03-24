@@ -8,9 +8,13 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			fontFamily: {
+				inter: ['inter', 'ui-sans-serif', 'system-ui'],
+			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				'hero-img': "url('/images/danimal-full.png')",
 			},
 			aspectRatio: {
 				pdf: '1 / 1.452',

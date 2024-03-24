@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import Header from '@/components/header';
+import Header from '@/app/header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,12 +16,12 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="en" className="scroll-smooth">
 			<body
-				className={`${inter.className} flex flex-col max-h-screen font-sans dark:bg-zinc-800 text-zinc-300 box-border`}
+				className={`${inter.className} whitespace-pre-wrap font-inter text-slate-400 antialiased flex from-slate-900 bg-gradient-to-tr to-black box-border`}
 			>
 				<Header />
-				<main className="min-h-full flex-1 flex flex-col my-16">{children}</main>
+				<main className="min-h-screen w-3/5 pt-16">{children}</main>
 			</body>
 		</html>
 	);

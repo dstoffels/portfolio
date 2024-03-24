@@ -1,4 +1,5 @@
 import P from '@/components/P';
+import { CertType } from '../types';
 
 const Cert = ({ cert }: CertProps) => {
 	const year = new Date(cert.date).getFullYear();
@@ -17,12 +18,5 @@ const Cert = ({ cert }: CertProps) => {
 export default Cert;
 
 export type CertProps = {
-	cert: CVCertification;
-};
-
-export type CVCertification = {
-	name: string;
-	institution: string;
-	date: string;
-	description: string;
+	cert: CertType;
 };

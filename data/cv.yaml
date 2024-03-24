@@ -1,4 +1,6 @@
-name: Dan Stoffels
+name: Dan O Stoffels
+subtitle: Full Stack Developer
+tagline: I create inuitive and comprehensive software solutions. 
 subtext: Full Stack Developer | React Specialist | Django Specialist
 email: dan.stoffels@gmail.com
 phone: 1-615-974-2405
@@ -10,8 +12,17 @@ socials:
   linkedin: https://www.linkedin.com/in/danstoffels/
   facebook: 
   instagram: 
+  github: https://github.com/dstoffels
 
-summary: With over 12 years of experience ranging from web development to full stack engineering, I specialize in React and Django and have instructed over 1200 students in the fields of audio and software engineering during my 8 years in higher education. My passion for music, technology and teaching brings a structured and creative approach that results in innovative solutions.
+about: |+
+  Back in 2012, I decided to try my hand at creating custom Tumblr themes and tumbled head first into the rabbit hole of coding and web development. Fast-forward to today, and I've had the privilege of building software for an advertising agency, a start-up, a huge corporation, and a digital product studio.
+
+  My main focus these days is building accessible user interfaces for our customers at Klaviyo. I most enjoy building software in the sweet spot where design and engineering meet — things that look good but are also built well under the hood. In my free time, I've also released an online video course that covers everything you need to know to build a web app with the Spotify API.
+
+  When I'm not at the computer, I'm usually rock climbing, reading, hanging out with my wife and two cats, or running around Hyrule searching for Korok seeds.
+
+summary: |+ 
+  With over 12 years of experience ranging from web development to full stack engineering, I specialize in React and Django. I have instructed over 1000 students in the fields of audio and software engineering during my 8 years in higher education. My passion for music, technology and teaching brings a structured and creative approach that results in innovative solutions.
 
 experience:
   - position: Instructor of Software Development
@@ -23,8 +34,18 @@ experience:
       - Outlined and initiated the restructuring of a monolithic full-stack course into a focused, modular course hierarchy, resulting in a 10% increase to enrollments through wider variety and affordability.
       - Designed a comprehensive React course that introduces students to full-stack React through 8 lectures, a 25-video tutorial series and 6 projects, improving student outcomes by 25%.
       - Collaborated on the development of a C#/ASP.NET curriculum aimed at boosting student comprehension of OOP principles, data structures, MVC patterns and REST APIs.
-      - Wrote and produced educational shorts showcasing "pro tips" on best practices and improving worflows, that resulted in a 30% increase in engagement on LinkedIn and TikTok.
-  - position: Stage Manager & Monitor Engineer
+      - Wrote and produced educational shorts, showcasing "pro tips" on best practices and improving worflows, that resulted in a 30% increase in engagement on LinkedIn and TikTok.
+      - Trained over 300 students in full-stack software development and DevOps with tech stacks such as MERN, Django, Flask, ASP.NET, Spring, MySQL, Docker, Jenkins, Kubernetes and AWS.
+    tags:
+      - MERN Stack
+      - Python
+      - C#
+      - Java
+      - Django
+      - ASP.NET
+      - Flask
+      - SQL
+  - position: Stage Manager and Monitor Engineer
     company: LANCO Music (Band)
     location: Nashville, TN
     start_date: 2017-11-04
@@ -32,8 +53,8 @@ experience:
     responsibilities:
       - Worked directly with artist and tour management to organize support for A-list touring acts such as Luke Combs, Dierks Bentley, Miranda Lambert and Brothers Osborne.
       - Designed, built and operated a redundant backing track system and its MIDI control network, improving stage operations and preventing dropouts during performances.
-      - Managed and maintained a 56-input split audio system for the monitor console, 6 channels of wireless in-ear monitoring and 6 wireless instruments.
-  - position: Freelance Artist Production & Management
+      - Managed stage and monitors for over 400 shows internationally, ranging from mid-sized clubs to A-list arena tours, fairs and large festivals including Stagecoach and C2C.
+  - position: Freelance Artist Production and Management
     company: Self Employment
     location: Madison, WI
     start_date: 2011-12-01
@@ -42,7 +63,6 @@ experience:
       - Co-created and produced 31 episodes of "Crusty Adventures" with Brett Newski, a travel mockumentary series showcasing life as a touring musician mixed with skits and misadventures.
       - Volunteered as a technical director for the Steel Bridge Songfest from 2007-2021, managing live and studio production for over 200 artists, including Pat MacDonald and Jackson Browne, during three separate weeklong songwriting events annually.
       - Web development and content management for music artists such as Geri X, Genevieve Heyward and Brett Newski, focused on web traffic and social media impressions that resulted in increased merch and ticket sales.
-      - Tour and production management for various regional and international artists that included 18 tours in the US, 4 in Europe and 1 in Australia, dramatically improving tour organization and live production.
   - position: Instructor of Audio Engineering
     company: Madison Media Institute
     location: Madison, WI
@@ -50,16 +70,21 @@ experience:
     end_date: 2015-05-26
     responsibilities:
       - Initiated, developed and administered curriculum for two live sound courses, resulting in an 18% increase in placement and brought greater community engagement by providing PA systems and students to local events.
-      - Leveraged modern tech to migrate the entire audio engineering curriculum to paperless using a Moodle LMS, drastically reducing waste from paper and printers.
       - Booked local and national bands for 8-hour studio recording classes and supervised their production in 3 separate studios, expanding the network and visibility of the school.
+      - Graduated more than 700 students in audio engineering, with training in live sound, studio production and Pro Tools expert level certification.
 
 education:
-  - degree: Bachelor of Science in Entertainment & Media Business
+  - degree: Certificate in Full Stack Software Development
+    institution: devCodeCamp
+    start_date: 2021-12-01
+    end_date: 2022-04-11
+    location: Milwaukee, WI
+  - degree: Bachelor of Science in Entertainment and Media Business
     institution: Madison Media Institute
     start_date: 2013-02-01
     end_date: 2014-08-01
     location: Madison, WI
-  - degree: Associate of Arts in Recording & Music Technology
+  - degree: Associate of Arts in Recording and Music Technology
     institution: Madison Media Institute
     start_date: 2006-02-01
     end_date: 2007-05-01
@@ -111,20 +136,28 @@ skills:
 
 projects:
   - name: indietour
-    description: A tour management web app for independent bands & artists, built with Next.js, Django & SQL, and deployed on GCP via Docker and Jenkins.
+    description: A tour management web app for independent bands and artists, built with Next.js, Django and SQL, and deployed on GCP via Docker and Jenkins.
     links: 
       - name: Website
         link: https://indietour.org
-      - name: Frontend Repo
+      - name: Frontend Repository
         link: https://github.com/dstoffels/indietour-client
-      - name: Backend Repo
+      - name: Backend Repository
         link: https://github.com/dstoffels/indietour-api
+  - name: Portfolio
+    description: My professional portfolio, featuring a chatbot clone of me via the openai API. Built with Next.js and tailwind, it leverages puppeteer to generate a PDF of my CV from raw data.
+    links: 
+      - name: Website
+        link: https://danostoffels.me
+      - name: Repository
+        link: https://github.com/dstoffels/portfolio
+
 
 certifications:
   - name: Full Stack Software Development 
     institution: devCodeCamp
     date: 2022-04-11
-    description: A 16-week bootcamp covering Python & Django REST APIs with SQL databases, and basic web development up to React MPAs with JWT authentication.
+    description: A 16-week bootcamp covering Python, Django REST APIs with SQL databases, and basic web development up to React MPAs with JWT authentication.
 
 achievements:
   - title: Modularized Software Curriculum
@@ -139,3 +172,6 @@ achievements:
     description: Produced educational and testimonial video content for social media, improving impressions by 30%.
     year: 2022
     company: devCodeCamp
+
+footer: |+
+  Designed in Whimsical, coded in Visual Studio Code with all content parsed from yaml. Built using Next.js and Tailwind CSS, deployed on Vercel.
