@@ -1,13 +1,13 @@
 import NavLink from '@/components/NavLink';
 import TextTicker from '../components/TextTicker';
-import { fetchCVData } from './cv/actions';
+import { fetchCVData } from './actions';
 import SocialLink from '@/components/SocialLink';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiReaddotcv } from 'react-icons/si';
 import Chatbot from './ChatBot';
 
-const Header = () => {
-	const data = fetchCVData();
+const Header = async () => {
+	const data = await fetchCVData();
 
 	return (
 		<div className="lg:w-2/5 max-h-screen">

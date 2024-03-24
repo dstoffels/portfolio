@@ -3,6 +3,10 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import OpenAI from 'openai';
 import { ChatMessage } from './types';
+import yaml from 'yaml';
+import fs from 'fs';
+import { CVData } from '@/app/types';
+
 const openai = new OpenAI();
 
 export async function createThread() {
@@ -37,6 +41,13 @@ export async function fetchMsgs(thread_id: string) {
 
 export async function sleep(ms: number) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export async function fetchCVData() {
+	const cvFile = fs.readFileSync(`./data/cv.yaml`, 'utf-8');
+	const data = yaml.parse(cvFile, { toStringDefaults: {} }) as CVData;
+
+	return data;
 }
 
 export async function fetchSiteThumbnails(urls: string[]) {

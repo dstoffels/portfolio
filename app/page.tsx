@@ -1,12 +1,12 @@
 import { FiExternalLink } from 'react-icons/fi';
-import { fetchCVData } from './cv/actions';
+import { fetchCVData } from './actions';
 import HomeXP from './HomeXP';
 import Section from './Section';
 import HomeProject from './HomeProject';
 import { fetchSiteThumbnails } from './actions';
 
 export default async function Page({ searchParams }: HomePageProps) {
-	const data = fetchCVData();
+	const data = await fetchCVData();
 
 	const xp = data.experience.map((xp, i) => <HomeXP xp={xp} key={`xp-${i}`} />);
 
