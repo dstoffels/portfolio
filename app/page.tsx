@@ -5,6 +5,7 @@ import Section from './Section';
 import HomeProject from './HomeProject';
 import { fetchSiteThumbnails } from './actions';
 import Header from './header';
+import Chatbot from './ChatBot';
 
 export default async function Page({ searchParams }: HomePageProps) {
 	const data = await fetchCVData();
@@ -29,13 +30,11 @@ export default async function Page({ searchParams }: HomePageProps) {
 
 			<div className="min-h-screen lg:w-3/5 px-16 mx-auto">
 				<Section id="about" heading="About">
-					<img
-						src="/images/danimal-sq.png"
-						alt="The 'Danimal' holding his cat in an 80's glam shot"
-						className="w-64 inline max-sm:mx-0 max-sm:w-full sm:float-end ml-2 mb-1 border rounded-xl border-slate-400/10"
-					/>
-					<p>{data.about}</p>
+					<p className="px-32">{data.about}</p>
 				</Section>
+				{/* <Section id="chat">
+					<Chatbot />
+				</Section> */}
 				<Section id="xp" heading="Experience">
 					{xp}
 					<a
@@ -49,7 +48,7 @@ export default async function Page({ searchParams }: HomePageProps) {
 				<Section id="projects" heading="Projects">
 					{projects}
 				</Section>
-				<footer className="text-sm text-slate-600">{data.footer}</footer>
+				<footer className="text-sm pb-16 text-slate-600">{data.footer}</footer>
 			</div>
 		</div>
 	);

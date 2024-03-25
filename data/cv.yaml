@@ -15,7 +15,7 @@ socials:
   github: https://github.com/dstoffels
 
 about: |+
-  Back in 2011, I began developing Wordpress sites for local artists as a hobby and found I was well suited for the dev life. After several years of web development, I tried my hand in the gaming world with C# and Unity. Now I have two years of tenure teaching full-stack engineering at a bootcamp and several deployed projects under my belt.
+  Back in 2011, I began developing Wordpress sites for local artists as a hobby and found I was well suited for dev life. After several years of web development, I tried my hand in the gaming world with C# and Unity. Now I have two years of tenure teaching full-stack engineering at a bootcamp and several deployed projects under my belt.
 
   I enjoy working with raw data and building systems that automate or manipulate it. I love developing with Django and React, taking great care to write clean, efficient and extendable code. I've also produced a complete React course that includes a video tutorial series along with lectures and projects.
 
@@ -170,7 +170,7 @@ projects:
       - name: Backend Repository
         link: https://github.com/dstoffels/indietour-api
   - name: Portfolio
-    description: My professional portfolio, featuring a chatbot clone of me via the openai API. Built with Next.js and tailwind, it leverages puppeteer to generate a PDF of my CV from raw data.
+    description: My professional portfolio, featuring a chatbot clone of me via the OpenAI API. Built with Next.js and tailwind, it leverages puppeteer to generate a PDF of my CV from raw data.
     links: 
       - name: Website
         link: https://danostoffels.me
