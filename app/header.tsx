@@ -25,7 +25,7 @@ const Header = async () => {
 							<p className="text-base tracking-wide">{data.tagline}</p>
 						</div>
 						<nav className="text-right w-full max-lg:hidden">
-							<NavLink href="#">Dan</NavLink>
+							<NavLink href="#about">Dan</NavLink>
 							<NavLink href="#xp">xp</NavLink>
 							<NavLink href="#projects">My Work</NavLink>
 						</nav>

@@ -27,7 +27,7 @@ export default async function Page({ searchParams }: HomePageProps) {
 		<div className="lg:flex">
 			<Header />
 
-			<div className="min-h-screen lg:w-3/5 p-16 mx-auto">
+			<div className="min-h-screen lg:w-3/5 px-16 mx-auto">
 				<Section id="about" heading="About">
 					<img
 						src="/images/danimal-sq.png"
