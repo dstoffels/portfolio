@@ -15,18 +15,23 @@ const Header = async () => {
 				<div className="mb-10 w-full">
 					<a href={'/'}>
 						<TextTicker
-							className="font-semibold text-amber-700 tracking-tight mb-2 font-mono text-5xl mr-2 hover:text-amber-600 hover:tracking-normal transition-all duration-200"
+							className="font-semibold text-amber-700 tracking-tight mb-2 font-mono text-4xl mr-2 hover:text-amber-600 hover:tracking-normal transition-all duration-200"
 							text={`${data.name};`}
 						/>
 					</a>
-					<h2 className="text-xl text-gray-100 font-light mb-4">{data.subtitle}</h2>
-					<p className="text-base tracking-wide">{data.tagline}</p>
+					<div className="flex">
+						<div>
+							<h2 className="text-xl text-gray-100 font-light mb-4">{data.subtitle}</h2>
+							<p className="text-base tracking-wide">{data.tagline}</p>
+						</div>
+						<nav className="text-right w-full max-lg:hidden">
+							<NavLink href="#">Dan</NavLink>
+							<NavLink href="#xp">xp</NavLink>
+							<NavLink href="#projects">My Work</NavLink>
+						</nav>
+					</div>
 				</div>
-				<nav className="text-right w-full max-lg:hidden mb-10">
-					<NavLink href="#">Dan</NavLink>
-					<NavLink href="#xp">xp</NavLink>
-					<NavLink href="#projects">My Work</NavLink>
-				</nav>
+
 				<Chatbot />
 				<footer className="text-3xl flex gap-8 items-end">
 					<SocialLink href={data.socials.github} tooltip="GitHub">
@@ -35,7 +40,7 @@ const Header = async () => {
 					<SocialLink href={data.socials.linkedin} tooltip="LinkedIn">
 						<FaLinkedin />
 					</SocialLink>
-					<SocialLink href="/cv" newWindow={false} tooltip="CV">
+					<SocialLink href="/cv/dan-stoffels-cv.pdf" newWindow={false} tooltip="CV">
 						<SiReaddotcv />
 					</SocialLink>
 				</footer>

@@ -19,7 +19,7 @@ about: |+
 
   I enjoy working with raw data and building systems that automate or manipulate it. I love developing with Django and React, taking great care to write clean, efficient and extendable code. I've also produced a complete React course that includes a video tutorial series along with lectures and projects.
 
-  When I'm not putting miles on the keyboard, I'm putting miles on a camper van I built out, hiking, cycling or playing drums for my bands.
+  When I'm not putting miles on the keyboard, I'm putting miles on my camper van, hiking, cycling or playing drums with my bands.
 
 summary: |+ 
   With over 12 years of experience ranging from web development to full stack engineering, I specialize in React and Django. I have instructed over 1000 students in the fields of audio and software engineering during my 8 years in higher education. My passion for music, technology and teaching brings a structured and creative approach that results in innovative solutions.
@@ -34,7 +34,7 @@ experience:
       - Outlined and initiated the restructuring of a monolithic full-stack course into a focused, modular course hierarchy, resulting in a 10% increase to enrollments through wider variety and affordability.
       - Designed a comprehensive React course that introduces students to full-stack React through 8 lectures, a 25-video tutorial series and 6 projects, improving student outcomes by 25%.
       - Collaborated on the development of a C#/ASP.NET curriculum aimed at boosting student comprehension of OOP principles, data structures, MVC patterns and REST APIs.
-      - Wrote and produced educational shorts, showcasing "pro tips" on best practices and improving worflows, that resulted in a 30% increase in engagement on LinkedIn and TikTok.
+      - Wrote and produced educational shorts, showcasing "pro tips" on best practices and improving workflows, that resulted in a 30% increase in engagement on LinkedIn and TikTok.
       - Trained over 300 students in full-stack software development and DevOps with tech stacks such as MERN, Django, Flask, ASP.NET, Spring, MySQL, Docker, Jenkins, Kubernetes and AWS.
     description: >
       Trained over 300 students in full-stack development and DevOps. Restuctured curriculum into modular courses to boost sales through variety. Designed the React course that included a 25-part tutorial series. Produced social media shorts on industry best practices to improve engagement.
@@ -177,7 +177,7 @@ projects:
       - name: Repository
         link: https://github.com/dstoffels/portfolio
   - name: "Genevieve Heyward"
-    description: An artist site built with Squarespace supplemented with some of my JavaScript widgets. 
+    description: An artist site built with Squarespace, embedded with several JavaScript widgets.
     links: 
       - name: Website
         link: https://genevieveheyward.com
@@ -203,6 +203,8 @@ achievements:
     company: devCodeCamp
 
 footer: |+
-  Designed in Whimsical, coded in Visual Studio Code with all content parsed from yaml. 
+  Designed in Whimsical
+  Coded with Visual Studio Code
   Built using Next.js and Tailwind CSS
-  Deployed on Vercel.
+  All content parsed from yaml
+  Deployed on Vercel

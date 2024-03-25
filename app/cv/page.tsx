@@ -43,8 +43,9 @@ const CVPage = async ({}) => {
 	));
 
 	return (
-		<div className="my-2 mx-auto">
-			<div className="flex overflow-hidden aspect-pdf w-5xl print:" id="cv">
+		<div className="w-screen h-full">
+			<DownloadBtn baseUrl={process.env.BASE_URL as string} />
+			<div className="flex overflow-hidden mx-auto aspect-pdf w-5xl" id="cv">
 				<div className="w-1/3 p-10 bg-sky-900 text-white">
 					<img
 						src={`${BASE_URL}/images/danimal-sq.png`}
@@ -78,7 +79,6 @@ const CVPage = async ({}) => {
 					<CVSection heading="Education">{education}</CVSection>
 				</div>
 			</div>
-			<DownloadBtn baseUrl={process.env.BASE_URL as string} />
 			{process.env.DEV && <DevUpdater />}
 		</div>
 	);
