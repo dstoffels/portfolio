@@ -28,9 +28,9 @@ export default async function Page({ searchParams }: HomePageProps) {
 		<div className="lg:flex">
 			<Header />
 
-			<div className="min-h-screen lg:w-3/5 px-16 mx-auto">
+			<div className="min-h-screen lg:w-3/5 mx-auto">
 				<Section id="about" heading="About">
-					<p className="px-32">{data.about}</p>
+					<p className="">{data.about}</p>
 				</Section>
 				{/* <Section id="chat">
 					<Chatbot />
@@ -38,7 +38,7 @@ export default async function Page({ searchParams }: HomePageProps) {
 				<Section id="xp" heading="Experience">
 					{xp}
 					<a
-						className="text-slate-300 p-3 ease-in-out duration-300 hover:text-blue-400"
+						className="text-slate-300 p-3 ease-in-out duration-300 hover:text-slate-400"
 						href="/cv/dan-stoffels-cv.pdf"
 					>
 						<span>View Curriculum Vitae</span>
@@ -48,7 +48,7 @@ export default async function Page({ searchParams }: HomePageProps) {
 				<Section id="projects" heading="Projects">
 					{projects}
 				</Section>
-				<footer className="text-sm pb-16 text-slate-600">{data.footer}</footer>
+				<footer className="text-sm p-16 md:px-32 pt-0 text-slate-600">{data.footer}</footer>
 			</div>
 		</div>
 	);

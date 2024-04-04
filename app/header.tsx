@@ -11,7 +11,7 @@ const Header = async () => {
 
 	return (
 		<div className="lg:w-2/5 max-h-screen">
-			<header className="p-4 lg:py-16 lg:pl-16 h-screen lg:fixed top-0 lg:w-2/5 items-center flex flex-col">
+			<header className="p-4 md:py-16 md:pl-32 h-screen lg:fixed top-0 lg:w-2/5 items-center flex flex-col">
 				<div className="w-full">
 					<a href={'/'}>
 						<TextTicker

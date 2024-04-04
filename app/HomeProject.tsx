@@ -7,7 +7,7 @@ const HomeProject = async ({ project, src }: HomeProjectProps) => {
 
 	return (
 		<a href={href} target="_blank">
-			<div className="flex mb-2 p-6 gap-4 rounded-md hover:bg-slate-500/10 duration-300 ease-out ">
+			<div className="flex mb-4 -mx-4 p-4 gap-4 rounded-md hover:bg-slate-500/10 duration-300 ease-out border-t-2 border-t-transparent border-r-2 border-r-transparent hover:border-slate-500/10">
 				<div className="basis-1/4">
 					<img src={src} alt={src} />
 				</div>
