@@ -8,14 +8,14 @@ const HomeXP = ({ xp }: HomeXPProps) => {
 	const tags = xp.tags.map((t) => (
 		<span
 			key={`tag-${t}`}
-			className="text-xs text-cyan-600 font-semibold bg-cyan-600/10 rounded-3xl px-3 py-1.5  text-nowrap"
+			className="text-xs text-cyan-600 font-semibold bg-cyan-600/10 rounded-3xl px-3 py-1.5 text-nowrap"
 		>
 			{t}
 		</span>
 	));
 
 	return (
-		<div className="flex gap-4 mb-2 p-6 hover:border-t hover:border-r border-slate-500/10 rounded-md hover:bg-slate-500/10 duration-300 ease-out ">
+		<div className="flex gap-4 -mx-4 mb-4 p-4 border-t-2 border-t-transparent border-r-2 border-r-transparent hover:border-slate-500/10 rounded-md hover:bg-slate-500/10 duration-300 ease-out ">
 			<div className="basis-1/4 text-xs font-semibold tracking-wide pt-2">
 				<span className="text-nowrap">{start.toUpperCase()}</span>
 				<span> - </span>
