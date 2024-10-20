@@ -19,6 +19,7 @@ export default async function generatePDF(req: NextApiRequest, res: NextApiRespo
 		});
 		await browser.close();
 
+		// @ts-ignore
 		fs.writeFile('public/cv/dan-stoffels-cv.pdf', pdfBuffer, (err) => err && console.log(err));
 
 		console.log('CV PDF created');
