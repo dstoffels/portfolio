@@ -1,7 +1,7 @@
 name: Dan O Stoffels
-subtitle: Full Stack Developer
+subtitle: Software Engineer
 tagline: I create inuitive and comprehensive software solutions. 
-subtext: Full Stack Developer | React Specialist | Django Specialist
+subtext: Software Engineer | DevOps Engineer | Technology Educator
 email: dan.stoffels@gmail.com
 phone: 1-615-974-2405
 location: Nashville, TN
@@ -37,10 +37,11 @@ experience:
     description: >
       Over 60 US and Mexico shows in 2024, including festivals like Country Thunder and Luke Bryan's, Crash My Playa. Worked on A-list tours as support for artist such as Cyndi Lauper.
     tags:
-      - Drum Tech
-      - Keyboard Tech
+      - Backline
+      - Drums
+      - Keyboards
       - Stage Management
-      - Audiovisual
+      - Audio
       - Touring
   - position: Instructor of Software Development
     company: devCodeCamp
@@ -177,11 +178,17 @@ skills:
       proficiency: 2.5
 
 projects:
+  - name: nexios
+    description: 
+    links:
+      - name: NPM Package
+        link: https://www.npmjs.com/package/nexios
+      - name: Repository
   - name: indietour
-    description: A tour management web app for independent bands and artists, built with Next.js, Django and SQL, and deployed on GCP via Docker and Jenkins.
+    description: A tour management app for independent bands and artists. uilt with Next.js, Django and SQL, and deployed on GCP via Docker and Jenkins.
     links: 
-      - name: Website
-        link: https://indietour.org
+      # - name: Website
+      #   link: https://indietour.org
       - name: Frontend Repository
         link: https://github.com/dstoffels/indietour-client
       - name: Backend Repository
