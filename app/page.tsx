@@ -5,7 +5,6 @@ import Section from './Section';
 import HomeProject from './HomeProject';
 import { fetchSiteThumbnails } from './actions';
 import Header from './header';
-import Chatbot from './ChatBot';
 import { fetchDB } from '@/utils/db';
 
 export default async function Page({ searchParams }: HomePageProps) {

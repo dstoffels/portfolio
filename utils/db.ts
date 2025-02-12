@@ -24,13 +24,13 @@ const defaultProfessionalInfo: ProfessionalInfoModel = {
 
 export async function fetchDB(docId: 'professionalInfo') {
 	const d = doc(db, `portfolio/${docId}`);
-	// const data = (await getDoc(d)).data();
-	// if (data) return data as ProfessionalInfoModel;
-	// await setDB(docId, defaultProfessionalInfo);
-	// return await fetchDB(docId);
+	const data = (await getDoc(d)).data();
+	if (data) return data as ProfessionalInfoModel;
+	await setDB(docId, defaultProfessionalInfo);
+	return await fetchDB(docId);
 }
 
 export async function setDB(docId: 'professionalInfo', dbObj: ProfessionalInfoModel) {
-	// const docRef = doc(db, `portfolio/${docId}`);
-	// await setDoc(docRef, dbObj);
+	const docRef = doc(db, `portfolio/${docId}`);
+	await setDoc(docRef, dbObj);
 }
