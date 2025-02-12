@@ -6,9 +6,11 @@ import HomeProject from './HomeProject';
 import { fetchSiteThumbnails } from './actions';
 import Header from './header';
 import Chatbot from './ChatBot';
+import { fetchDB } from '@/utils/db';
 
 export default async function Page({ searchParams }: HomePageProps) {
 	const data = await fetchCVData();
+	const db = await fetchDB('professionalInfo');
 
 	const xp = data.experience.map((xp, i) => <HomeXP xp={xp} key={`xp-${i}`} />);
 
@@ -16,12 +18,12 @@ export default async function Page({ searchParams }: HomePageProps) {
 		(p) => p.links.find((l) => l.name === 'Website')?.link as string,
 	);
 
-	const { thumbnailPaths } = (await fetchSiteThumbnails(projectLinks)) as {
-		thumbnailPaths: string[];
-	};
+	// const { thumbnailPaths } = (await fetchSiteThumbnails(projectLinks)) as {
+	// 	thumbnailPaths: string[];
+	// };
 
 	const projects = data.projects.map((p, i) => (
-		<HomeProject project={p} src={thumbnailPaths[i]} key={`project-${i}`} />
+		<HomeProject project={p} src={''} key={`project-${i}`} />
 	));
 
 	return (
