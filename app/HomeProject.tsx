@@ -1,7 +1,7 @@
-import { ProjectType } from './types';
+import { Project } from '@/data/dbModel';
 
 const HomeProject = async ({ project, src }: HomeProjectProps) => {
-	const href = project.links.find((l) => l.name === 'Website')?.link as string;
+	const href = project.links.find((l) => l.title === 'Website')?.href as string;
 
 	src = `${process.env.BASE_URL}/${src}`;
 
@@ -12,7 +12,7 @@ const HomeProject = async ({ project, src }: HomeProjectProps) => {
 					<img src={src} alt={src} />
 				</div>
 				<div className="basis-3/4">
-					<h1 className="font-semibold text-amber-700">{project.name}</h1>
+					<h1 className="font-semibold text-amber-700">{project.title}</h1>
 					<p>{project.description}</p>
 				</div>
 			</div>
@@ -23,6 +23,6 @@ const HomeProject = async ({ project, src }: HomeProjectProps) => {
 export default HomeProject;
 
 export type HomeProjectProps = {
-	project: ProjectType;
+	project: Project;
 	src: string;
 };

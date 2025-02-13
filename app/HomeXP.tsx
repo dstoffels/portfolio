@@ -1,9 +1,10 @@
 import { getMonth, getYear } from '@/utils/dateParser';
 import { XpType } from './types';
+import { Experience } from '@/data/dbModel';
 
 const HomeXP = ({ xp }: HomeXPProps) => {
-	const start = getMonth(xp.start_date).short + ' ' + getYear(xp.start_date);
-	const end = xp.end_date ? getMonth(xp.end_date).short + ' ' + getYear(xp.end_date) : 'present';
+	const start = getMonth(xp.startDate).short + ' ' + getYear(xp.startDate);
+	const end = xp.endDate ? getMonth(xp.endDate).short + ' ' + getYear(xp.endDate) : 'present';
 
 	const tags = xp.tags.map((t) => (
 		<span
@@ -34,5 +35,5 @@ const HomeXP = ({ xp }: HomeXPProps) => {
 export default HomeXP;
 
 export type HomeXPProps = {
-	xp: XpType;
+	xp: Experience;
 };

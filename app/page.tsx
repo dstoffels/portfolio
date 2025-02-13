@@ -5,25 +5,33 @@ import Section from './Section';
 import HomeProject from './HomeProject';
 import { fetchSiteThumbnails } from './actions';
 import Header from './header';
-import { fetchDB } from '@/utils/db';
+import { fetchDoc, updateDoc } from '@/utils/db';
+import EditField from '@/components/EditField';
+import { auth } from '@/utils/auth';
 
 export default async function Page({ searchParams }: HomePageProps) {
-	const data = await fetchCVData();
-	const db = await fetchDB('professionalInfo');
+	const { isAdmin } = await auth();
+	const info = await fetchDoc('professionalInfo');
 
-	const xp = data.experience.map((xp, i) => <HomeXP xp={xp} key={`xp-${i}`} />);
+	const xp = info.experience.map((xp, i) => <HomeXP xp={xp} index={i} key={`xp-${i}`} />);
 
-	const projectLinks = data.projects.map(
-		(p) => p.links.find((l) => l.name === 'Website')?.link as string,
+	const projectLinks = info.projects.map(
+		(p) => p.links.find((l) => l.title === 'Website')?.href as string,
 	);
 
 	// const { thumbnailPaths } = (await fetchSiteThumbnails(projectLinks)) as {
 	// 	thumbnailPaths: string[];
 	// };
 
-	const projects = data.projects.map((p, i) => (
+	const projects = info.projects.map((p, i) => (
 		<HomeProject project={p} src={''} key={`project-${i}`} />
 	));
+
+	async function editAbout(newVal: string | number) {
+		'use server';
+		info.about = newVal as string;
+		await updateDoc('professionalInfo', info);
+	}
 
 	return (
 		<div className="lg:flex">
@@ -31,25 +39,24 @@ export default async function Page({ searchParams }: HomePageProps) {
 
 			<div className="min-h-screen lg:w-3/5 mx-auto">
 				<Section id="about" heading="About">
-					<p className="">{data.about}</p>
+					<EditField canEdit={isAdmin} value={info.about} onEdit={editAbout}>
+						<p>{info.about}</p>
+					</EditField>
 				</Section>
-				{/* <Section id="chat">
-					<Chatbot />
-				</Section> */}
 				<Section id="xp" heading="Experience">
 					{xp}
 					<a
 						className="text-slate-300 p-3 ease-in-out duration-300 hover:text-slate-400"
 						href="/cv/dan-stoffels-cv.pdf"
 					>
-						<span>View Curriculum Vitae</span>
+						<span>View Resume</span>
 						<FiExternalLink className="inline text-xl ml-2" />
 					</a>
 				</Section>
 				<Section id="projects" heading="Projects">
 					{projects}
 				</Section>
-				<footer className="text-sm p-16 md:px-32 pt-0 text-slate-600">{data.footer}</footer>
+				{/* <footer className="text-sm p-16 md:px-32 pt-0 text-slate-600">{data.footer}</footer> */}
 			</div>
 		</div>
 	);

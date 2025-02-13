@@ -1,4 +1,4 @@
-import { ThreadMessage } from 'openai/resources/beta/threads/index.mjs';
+// import { ThreadMessage } from 'openai/resources/beta/threads/index.mjs';
 
 export type CVData = {
 	name: string;
@@ -65,9 +65,11 @@ export type CertType = {
 	description: string;
 };
 
-export type ChatMessage = ThreadMessage & {
-	content: {
-		type: 'text';
-		text: { value: string; annotations: [] };
-	}[];
-};
+// export type ChatMessage = ThreadMessage & {
+// 	content: {
+// 		type: 'text';
+// 		text: { value: string; annotations: [] };
+// 	}[];
+// };
+
+export type RenderablePrimitive = string | number | boolean | undefined | null;
