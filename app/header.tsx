@@ -4,7 +4,7 @@ import { fetchCVData } from './actions';
 import SocialLink from '@/components/SocialLink';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiReaddotcv } from 'react-icons/si';
-import Chatbot from './ChatBot';
+import Chatbot from './components/ChatBot';
 
 const Header = async () => {
 	const data = await fetchCVData();

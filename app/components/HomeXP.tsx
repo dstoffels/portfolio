@@ -1,8 +1,8 @@
 import { getMonth, getYear } from '@/utils/dateParser';
-import { XpType } from './types';
+import { XpType } from '../types';
 import { Experience } from '@/data/dbModel';
 
-const HomeXP = ({ xp }: HomeXPProps) => {
+const HomeXP = ({ xp, index }: HomeXPProps) => {
 	const start = getMonth(xp.startDate).short + ' ' + getYear(xp.startDate);
 	const end = xp.endDate ? getMonth(xp.endDate).short + ' ' + getYear(xp.endDate) : 'present';
 
@@ -36,4 +36,5 @@ export default HomeXP;
 
 export type HomeXPProps = {
 	xp: Experience;
+	index: number;
 };

@@ -1,13 +1,14 @@
 import { FiExternalLink } from 'react-icons/fi';
 import { fetchCVData } from './actions';
-import HomeXP from './HomeXP';
-import Section from './Section';
-import HomeProject from './HomeProject';
+import HomeXP from './components/HomeXP';
+import Section from './components/Section';
+import HomeProject from './components/HomeProject';
 import { fetchSiteThumbnails } from './actions';
 import Header from './header';
 import { fetchDoc, updateDoc } from '@/utils/db';
 import EditField from '@/components/EditField';
 import { auth } from '@/utils/auth';
+import XPForm from './components/XPForm';
 
 export default async function Page({ searchParams }: HomePageProps) {
 	const { isAdmin } = await auth();
@@ -44,6 +45,7 @@ export default async function Page({ searchParams }: HomePageProps) {
 					</EditField>
 				</Section>
 				<Section id="xp" heading="Experience">
+					<XPForm />
 					{xp}
 					<a
 						className="text-slate-300 p-3 ease-in-out duration-300 hover:text-slate-400"
