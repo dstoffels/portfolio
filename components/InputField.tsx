@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 
 export type InputFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
-	label: string;
+	label?: string;
 };
 
 const InputField: React.FC<InputFieldProps> = (props) => {

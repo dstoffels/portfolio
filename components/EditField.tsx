@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import { RenderablePrimitive } from '@/app/types';
 import { FiCheck } from 'react-icons/fi';
 
 export type EditFieldProps = React.PropsWithChildren & {
@@ -17,9 +16,13 @@ const EditField = ({ canEdit, value, onEdit, type = 'text', children }: EditFiel
 	const [curVal, setCurVal] = useState(value);
 
 	const handleClick = () => canEdit && setIsEditing(true);
+
 	const handleChange: React.ChangeEventHandler<HTMLTextAreaElement> = (e) =>
 		setCurVal(e.target.value);
-	const handleSubmit = () => {
+
+	const handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault();
+		e.stopPropagation();
 		onEdit(curVal);
 		setIsEditing(false);
 	};
@@ -35,7 +38,7 @@ const EditField = ({ canEdit, value, onEdit, type = 'text', children }: EditFiel
 	}, [curVal, isEditing]);
 
 	return isEditing ? (
-		<form onSubmit={handleSubmit}>
+		<div>
 			<textarea
 				className="flex-grow resize-none overflow-hidden w-full bg-slate-900 border border-slate-500 rounded-sm p-1"
 				rows={1}
@@ -44,11 +47,11 @@ const EditField = ({ canEdit, value, onEdit, type = 'text', children }: EditFiel
 				onChange={handleChange}
 			/>
 			<div className="flex justify-end">
-				<button className="text-2xl hover:bg-white/10 p-2 rounded-full">
+				<button onClick={handleSubmit} className="text-2xl hover:bg-white/10 p-2 rounded-full">
 					<FiCheck color="green" />
 				</button>
 			</div>
-		</form>
+		</div>
 	) : (
 		<div
 			onClick={handleClick}
