@@ -9,6 +9,7 @@ export type BtnFormProps = React.PropsWithChildren & {
 	className?: string;
 	submitBtnText?: string;
 	onSubmit?: () => void;
+	onOpen?: () => void;
 	onClose?: () => void;
 };
 
@@ -17,12 +18,16 @@ const BtnForm: React.FC<BtnFormProps> = ({
 	className,
 	submitBtnText,
 	onSubmit,
+	onOpen,
 	onClose,
 	children,
 }) => {
 	const [open, setOpen] = useState<boolean>(false);
 
-	const handleOpen = () => setOpen(!open);
+	const handleOpen = () => {
+		setOpen(!open);
+		onOpen && onOpen();
+	};
 
 	const handleClose = () => {
 		onClose && onClose();

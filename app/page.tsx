@@ -1,5 +1,5 @@
 import { FiExternalLink } from 'react-icons/fi';
-import { fetchCVData } from './actions';
+import { fetchCVData, logoutAdmin } from './actions';
 import HomeXP from './components/HomeXP';
 import Section from './components/Section';
 import HomeProject from './components/HomeProject';
@@ -9,12 +9,16 @@ import { fetchDoc, updateDoc } from '@/utils/db';
 import EditField from '@/components/EditField';
 import { auth } from '@/utils/auth';
 import XPForm from './components/XPForm';
+import Button from '@/components/Button';
+import LogoutBtn from './components/LogoutBtn';
 
 export default async function Page({ searchParams }: HomePageProps) {
 	const { isAdmin } = await auth();
 	const info = await fetchDoc('professionalInfo');
 
-	const xp = info.experience.map((xp, i) => <HomeXP xp={xp} index={i} key={`xp-${i}`} />);
+	const xp = info.experience.map((xp, i) => (
+		<HomeXP xp={xp} index={i} key={`xp-${i}`} isAdmin={isAdmin} info={info} />
+	));
 
 	const projectLinks = info.projects.map(
 		(p) => p.links.find((l) => l.title === 'Website')?.href as string,
@@ -46,7 +50,7 @@ export default async function Page({ searchParams }: HomePageProps) {
 				</Section>
 				<Section id="xp" heading="Experience">
 					{xp}
-					<XPForm db={info} />
+					<XPForm info={info} />
 					<a
 						className="text-slate-300 p-3 ease-in-out duration-300 hover:text-slate-400"
 						href="/cv/dan-stoffels-cv.pdf"
@@ -60,6 +64,8 @@ export default async function Page({ searchParams }: HomePageProps) {
 				</Section>
 				{/* <footer className="text-sm p-16 md:px-32 pt-0 text-slate-600">{data.footer}</footer> */}
 			</div>
+
+			<LogoutBtn isAdmin={isAdmin} />
 		</div>
 	);
 }

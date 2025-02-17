@@ -12,7 +12,9 @@ export type XPFormProps = {
 	btnLabel?: string;
 	xp?: Experience;
 	index?: number;
-	db: ProfessionalInfoModel;
+	info: ProfessionalInfoModel;
+	onEdit?: (isEditing: boolean) => void;
+	onSubmit?: () => void;
 };
 
 const defaultXP: Experience = {
@@ -26,7 +28,7 @@ const defaultXP: Experience = {
 	tags: [],
 };
 
-const XPForm: React.FC<XPFormProps> = ({ btnLabel, xp = defaultXP, index, db }) => {
+const XPForm: React.FC<XPFormProps> = ({ btnLabel, xp = defaultXP, index, info, onEdit }) => {
 	const [xpObj, setXpObj] = useState(xp);
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -37,17 +39,18 @@ const XPForm: React.FC<XPFormProps> = ({ btnLabel, xp = defaultXP, index, db }) 
 	};
 
 	const handleSubmit = async () => {
-		if (index) db.experience[index] = xpObj;
+		if (index != undefined && index >= 0) info.experience[index] = xpObj;
 		else {
-			db.experience.push(xpObj);
+			info.experience.push(xpObj);
 			setXpObj(xp);
 		}
 
-		db.experience.sort((x, y) => x.endDate.localeCompare(y.endDate));
-		await updateDoc('professionalInfo', db);
+		info.experience.sort((x, y) => x.endDate.localeCompare(y.endDate));
+		await updateDoc('professionalInfo', info);
 	};
 
 	const handleCancel = () => {
+		onEdit && onEdit(false);
 		setXpObj(xp);
 	};
 
@@ -58,6 +61,7 @@ const XPForm: React.FC<XPFormProps> = ({ btnLabel, xp = defaultXP, index, db }) 
 			className="flex-col space-y-3 bg-slate-900 p-4"
 			onSubmit={handleSubmit}
 			onClose={handleCancel}
+			onOpen={() => onEdit && onEdit(true)}
 			btnText={btnLabel || 'Create New XP'}
 		>
 			<div className="flex space-x-3">
@@ -100,6 +104,7 @@ const XPForm: React.FC<XPFormProps> = ({ btnLabel, xp = defaultXP, index, db }) 
 			<InputField
 				label="Description"
 				type="text"
+				textarea
 				name="description"
 				value={xpObj.description}
 				onChange={handleChange}
