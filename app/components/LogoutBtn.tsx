@@ -11,7 +11,7 @@ export type LogoutBtnProps = {
 const LogoutBtn: React.FC<LogoutBtnProps> = ({ isAdmin }) => {
 	return (
 		isAdmin && (
-			<Button onClick={async () => await logoutAdmin()} className="fixed top-2 right-2">
+			<Button onClick={async () => await logoutAdmin()} className="fixed top-2 right-2" color="red">
 				LOGOUT
 			</Button>
 		)

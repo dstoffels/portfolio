@@ -8,6 +8,8 @@ import fs from 'fs';
 import { CVData } from '@/app/types';
 import path from 'path';
 import { cookies } from 'next/headers';
+import ProfessionalInfoModel from '@/data/dbModel';
+import { fetchDoc, updateDoc } from '@/utils/db';
 
 const openai = new OpenAI();
 
@@ -40,6 +42,15 @@ const openai = new OpenAI();
 // export async function fetchMsgs(thread_id: string) {
 // 	if (thread_id) return (await openai.beta.threads.messages.list(thread_id)).data as ChatMessage[];
 // }
+
+export async function editInfoField<K extends keyof ProfessionalInfoModel>(
+	info: ProfessionalInfoModel,
+	key: K,
+	newVal: ProfessionalInfoModel[K],
+) {
+	info[key] = newVal;
+	await updateDoc('professionalInfo', info);
+}
 
 export async function logoutAdmin() {
 	cookies().delete('admin');

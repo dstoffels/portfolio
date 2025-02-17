@@ -33,18 +33,19 @@ const ListEditor: React.FC<ListEditorProps> = ({ label, list, name = '', onChang
 			canEdit
 			value={v}
 			onEdit={(newVal) => handleChange(newVal.toString(), i)}
-		>
-			{v}
-		</EditField>
+		/>
 	));
 
 	return (
-		<div className="space-y-2">
+		<div className="space-y-2 p-2 border border-slate-600">
 			<h4>{label}</h4>
-			<div>{fields}</div>
+			<div className="space-y-2">{fields}</div>
 			<div className="flex space-x-2 items-center">
-				<InputField value={newVal} onChange={(e) => setNewVal(e.target.value)} />
-				<Button onClick={handleAdd} type="button">
+				<InputField
+					value={newVal}
+					onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewVal(e.target.value)}
+				/>
+				<Button color="indigo" onClick={handleAdd} type="button">
 					Add
 				</Button>
 			</div>

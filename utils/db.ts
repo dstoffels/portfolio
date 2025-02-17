@@ -13,9 +13,9 @@ const defaultProfessionalInfo: ProfessionalInfoModel = {
 	email: '',
 	phone: '',
 	location: '',
+	summary: '',
 	links: [],
 	about: '',
-	summary: '',
 	experience: [],
 	education: [],
 	skills: [],
@@ -33,6 +33,11 @@ export async function fetchDoc(docId: 'professionalInfo') {
 
 export async function updateDoc(docId: 'professionalInfo', dbObj: ProfessionalInfoModel) {
 	const docRef = doc(db, `portfolio/${docId}`);
-	await setDoc(docRef, dbObj);
+
+	// clean incoming obj
+	const validKeys = new Set(Object.keys(defaultProfessionalInfo));
+	const prunedObj = Object.fromEntries(Object.entries(dbObj).filter(([key]) => validKeys.has(key)));
+
+	await setDoc(docRef, prunedObj);
 	revalidatePath('/');
 }

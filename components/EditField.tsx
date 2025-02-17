@@ -5,13 +5,14 @@ import { useState, useEffect, useRef } from 'react';
 import { FiCheck } from 'react-icons/fi';
 
 export type EditFieldProps = React.PropsWithChildren & {
+	label?: string;
+	name?: string;
 	canEdit?: boolean;
 	value: string | number;
-	onEdit: (newVal: string | number) => any;
-	type?: React.HTMLInputTypeAttribute;
+	onEdit: (newVal: string | number, key: string) => any;
 };
 
-const EditField = ({ canEdit, value, onEdit, type = 'text', children }: EditFieldProps) => {
+const EditField = ({ label = '', name = '', canEdit, value, onEdit, children }: EditFieldProps) => {
 	const [isEditing, setIsEditing] = useState(false);
 	const [curVal, setCurVal] = useState(value);
 
@@ -23,7 +24,7 @@ const EditField = ({ canEdit, value, onEdit, type = 'text', children }: EditFiel
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 		e.stopPropagation();
-		onEdit(curVal);
+		onEdit(curVal, name);
 		setIsEditing(false);
 	};
 
@@ -39,7 +40,10 @@ const EditField = ({ canEdit, value, onEdit, type = 'text', children }: EditFiel
 
 	return isEditing ? (
 		<div>
+			{label && <p className="font-semibold">{label}</p>}
+
 			<textarea
+				name={name}
 				className="flex-grow resize-none overflow-hidden w-full bg-slate-900 border border-slate-500 rounded-sm p-1"
 				rows={1}
 				ref={inputRef}
@@ -53,13 +57,16 @@ const EditField = ({ canEdit, value, onEdit, type = 'text', children }: EditFiel
 			</div>
 		</div>
 	) : (
-		<div
-			onClick={handleClick}
-			className={`min-h-6 ${
-				canEdit ? 'border border-slate-800 hover:cursor-pointer hover:bg-white/5 p-1' : ''
-			}`}
-		>
-			{children}
+		<div>
+			{label && canEdit && <p className="font-semibold">{label}</p>}
+			<div
+				onClick={handleClick}
+				className={`min-h-6 ${
+					canEdit ? 'border border-slate-800 hover:cursor-pointer hover:bg-white/5 p-1' : ''
+				}`}
+			>
+				{children || value}
+			</div>
 		</div>
 	);
 };

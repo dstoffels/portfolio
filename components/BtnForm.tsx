@@ -43,7 +43,9 @@ const BtnForm: React.FC<BtnFormProps> = ({
 			{children}
 			<div className="flex justify-end space-x-3">
 				<Button type="submit">{submitBtnText || 'Submit'}</Button>
-				<Button onClick={handleClose}>Cancel</Button>
+				<Button color="red" onClick={handleClose}>
+					Cancel
+				</Button>
 			</div>
 		</form>
 	) : (

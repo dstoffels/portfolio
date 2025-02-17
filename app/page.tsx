@@ -1,5 +1,5 @@
 import { FiExternalLink } from 'react-icons/fi';
-import { fetchCVData, logoutAdmin } from './actions';
+import { editInfoField, fetchCVData, logoutAdmin } from './actions';
 import HomeXP from './components/HomeXP';
 import Section from './components/Section';
 import HomeProject from './components/HomeProject';
@@ -11,6 +11,7 @@ import { auth } from '@/utils/auth';
 import XPForm from './components/XPForm';
 import Button from '@/components/Button';
 import LogoutBtn from './components/LogoutBtn';
+import InfoForm from './components/InfoForm';
 
 export default async function Page({ searchParams }: HomePageProps) {
 	const { isAdmin } = await auth();
@@ -32,10 +33,9 @@ export default async function Page({ searchParams }: HomePageProps) {
 		<HomeProject project={p} src={''} key={`project-${i}`} />
 	));
 
-	async function editAbout(newVal: string | number) {
+	async function editField(newVal: any, key: string) {
 		'use server';
-		info.about = newVal as string;
-		await updateDoc('professionalInfo', info);
+		editInfoField(info, key, newVal);
 	}
 
 	return (
@@ -44,7 +44,14 @@ export default async function Page({ searchParams }: HomePageProps) {
 
 			<div className="min-h-screen lg:w-3/5 mx-auto">
 				<Section id="about" heading="About">
-					<EditField canEdit={isAdmin} value={info.about} onEdit={editAbout}>
+					<InfoForm info={info} isAdmin={isAdmin} />
+					<EditField
+						name="about"
+						label="About"
+						canEdit={isAdmin}
+						value={info.about}
+						onEdit={editField}
+					>
 						<p>{info.about}</p>
 					</EditField>
 				</Section>

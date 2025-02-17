@@ -14,6 +14,14 @@ export type ProfessionalInfoModel = {
 	skills: Skillset[];
 	projects: Project[];
 	achievements: Achievement[];
+	[key: string]:
+		| string
+		| Link[]
+		| Experience[]
+		| Education[]
+		| Skillset[]
+		| Project[]
+		| Achievement[];
 };
 
 export type Link = {
