@@ -1,13 +1,17 @@
 import P from '@/components/P';
 import { IoIosCalendar } from 'react-icons/io';
 import { MdLocationPin } from 'react-icons/md';
-import { EducationType } from '../types';
 import { getMonth, getYear } from '@/utils/dateParser';
+import { Education } from '@/data/dbModel';
 
-const Education = ({ education }: EducationProps) => {
-	const start = getMonth(education.start_date).numeric + '/' + getYear(education.start_date);
-	const end = education.end_date
-		? getMonth(education.end_date).numeric + '/' + getYear(education.end_date)
+export type EducationProps = {
+	education: Education;
+};
+
+const CVEducation: React.FC<EducationProps> = ({ education }: EducationProps) => {
+	const start = getMonth(education.startDate).numeric + '/' + getYear(education.startDate);
+	const end = education.endDate
+		? getMonth(education.endDate).numeric + '/' + getYear(education.endDate)
 		: 'present';
 
 	return (
@@ -32,8 +36,4 @@ const Education = ({ education }: EducationProps) => {
 	);
 };
 
-export default Education;
-
-export type EducationProps = {
-	education: EducationType;
-};
+export default CVEducation;

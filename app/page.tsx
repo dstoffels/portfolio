@@ -12,6 +12,7 @@ import XPForm from './components/XPForm';
 import Button from '@/components/Button';
 import LogoutBtn from './components/LogoutBtn';
 import InfoForm from './components/InfoForm';
+import Link from 'next/link';
 
 export default async function Page({ searchParams }: HomePageProps) {
 	const { isAdmin } = await auth();
@@ -58,6 +59,7 @@ export default async function Page({ searchParams }: HomePageProps) {
 				<Section id="xp" heading="Experience">
 					{xp}
 					<XPForm info={info} />
+					<Link href="/cv">CV Page</Link>
 					<a
 						className="text-slate-300 p-3 ease-in-out duration-300 hover:text-slate-400"
 						href="/cv/dan-stoffels-cv.pdf"

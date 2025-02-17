@@ -4,10 +4,15 @@ import { IoIosCalendar } from 'react-icons/io';
 import { MdLocationPin } from 'react-icons/md';
 import { XpType } from '../types';
 import { getMonth, getYear } from '@/utils/dateParser';
+import { Experience } from '@/data/dbModel';
 
-const CVxp = ({ xp }: XPProps) => {
-	const start = getMonth(xp.start_date).numeric + '/' + getYear(xp.start_date);
-	const end = xp.end_date ? getMonth(xp.end_date).numeric + '/' + getYear(xp.end_date) : 'present';
+export type XPProps = {
+	xp: Experience;
+};
+
+const CVxp: React.FC<XPProps> = ({ xp }) => {
+	const start = getMonth(xp.startDate).numeric + '/' + getYear(xp.startDate);
+	const end = xp.endDate ? getMonth(xp.endDate).numeric + '/' + getYear(xp.endDate) : 'present';
 
 	const responsibilities = xp.responsibilities.map((r, i) => (
 		<div key={`res-${i}`} className="mb-0.5 pl-2 text-xs">
@@ -42,7 +47,3 @@ const CVxp = ({ xp }: XPProps) => {
 };
 
 export default CVxp;
-
-export type XPProps = {
-	xp: XpType;
-};

@@ -3,35 +3,43 @@ import { MdEmail, MdLocalPhone, MdLocationPin } from 'react-icons/md';
 import { CgWebsite } from 'react-icons/cg';
 import CVHeaderLink from './CVHeaderLink';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import ProfessionalInfoModel from '@/data/dbModel';
 
-const CVHeader = ({ data }: CVHeaderProps) => {
+export type CVHeaderProps = {
+	info: ProfessionalInfoModel;
+};
+
+const CVHeader: React.FC<CVHeaderProps> = ({ info }) => {
+	const links = info.links.map((l, i) => (
+		<CVHeaderLink Icon={getIcon(l.title)} href={l.href}>
+			{l.title}
+		</CVHeaderLink>
+	));
+
 	return (
 		<header className="mb-6 text-right">
-			<h1 className="text-4xl font-semibold text-sky-900">{data.name}</h1>
-			<p className="text-lg text-orange-600 font-semibold">{data.subtext}</p>
+			<h1 className="text-4xl font-semibold text-sky-900">{info.name}</h1>
+			<p className="text-lg text-orange-600 font-semibold">{info.subtitle}</p>
 
 			<div>
-				<CVHeaderLink Icon={MdEmail}>{data.email}</CVHeaderLink>
-				<CVHeaderLink Icon={MdLocalPhone}>{data.phone}</CVHeaderLink>
-				<CVHeaderLink Icon={MdLocationPin}>{data.location}</CVHeaderLink>
+				<CVHeaderLink Icon={MdEmail}>{info.email}</CVHeaderLink>
+				<CVHeaderLink Icon={MdLocalPhone}>{info.phone}</CVHeaderLink>
+				<CVHeaderLink Icon={MdLocationPin}>{info.location}</CVHeaderLink>
 			</div>
-			<div>
-				<CVHeaderLink Icon={CgWebsite} href={data.website.link}>
-					{data.website.title}
-				</CVHeaderLink>
-				<CVHeaderLink Icon={FaGithub} href={data.socials.github}>
-					GitHub
-				</CVHeaderLink>
-				<CVHeaderLink Icon={FaLinkedin} href={data.socials.linkedin}>
-					LinkedIn
-				</CVHeaderLink>
-			</div>
+			<div>{links}</div>
 		</header>
 	);
 };
 
 export default CVHeader;
 
-export type CVHeaderProps = {
-	data: CVData;
-};
+function getIcon(linkTitle: string) {
+	switch (linkTitle) {
+		case 'GitHub':
+			return FaGithub;
+		case 'LinkedIn':
+			return FaLinkedin;
+		default:
+			return CgWebsite;
+	}
+}

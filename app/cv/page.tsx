@@ -4,7 +4,7 @@ import CVSection from './CVSection';
 import CVxp from './CVxp';
 import Achievement from './Achievement';
 import Skill from './Skill';
-import Education from './Education';
+import CVEducation from './CVEducation';
 import P from '@/components/P';
 import Cert from './Cert';
 
@@ -13,34 +13,35 @@ import Project from './Project';
 import { fetchCVData } from '../actions';
 import DevUpdater from './DevUpdater';
 import CVHeader from './CVHeader';
+import { fetchDoc } from '@/utils/db';
 
 const BASE_URL = process.env.BASE_URL;
 
 const CVPage = async ({}) => {
-	let data = await fetchCVData();
+	let info = await fetchDoc('professionalInfo');
 
-	const experience = data.experience.map((xp, i) => <CVxp key={`xp-${i}`} xp={xp} />);
-	const education = data.education.map((e, i) => <Education key={`ed-${i}`} education={e} />);
+	const experience = info.experience.map((xp, i) => <CVxp key={`xp-${i}`} xp={xp} />);
+	const education = info.education.map((e, i) => <CVEducation key={`ed-${i}`} education={e} />);
 
-	const achievements = data.achievements.map((a, i) => (
+	const achievements = info.achievements.map((a, i) => (
 		<Achievement key={`ach-${i}`} achievement={a} />
 	));
 
-	const languages = data.skills.languages.map((skill, i) => (
-		<Skill key={`sk1-${i}`} skill={skill} />
-	));
-	const frameworks = data.skills.frameworks.map((skill, i) => (
-		<Skill key={`sk2-${i}`} skill={skill} />
-	));
-	const devops = data.skills.devops.map((skill, i) => <Skill key={`sk3-${i}`} skill={skill} />);
+	// const languages = info.skills.languages.map((skill, i) => (
+	// 	<Skill key={`sk1-${i}`} skill={skill} />
+	// ));
+	// const frameworks = info.skills.frameworks.map((skill, i) => (
+	// 	<Skill key={`sk2-${i}`} skill={skill} />
+	// ));
+	// const devops = info.skills.devops.map((skill, i) => <Skill key={`sk3-${i}`} skill={skill} />);
 
-	const certifications = data.certifications.map((cert, i) => (
-		<Cert key={`cert-${i}`} cert={cert} />
-	));
+	// const certifications = info.certifications.map((cert, i) => (
+	// 	<Cert key={`cert-${i}`} cert={cert} />
+	// ));
 
-	const projects = data.projects.map((project, i) => (
-		<Project key={`proj-${i}`} project={project} />
-	));
+	// const projects = info.projects.map((project, i) => (
+	// 	<Project key={`proj-${i}`} project={project} />
+	// ));
 
 	return (
 		<div className="w-screen h-full">
@@ -54,7 +55,7 @@ const CVPage = async ({}) => {
 					/>
 					<CVSection heading="Achievements">{achievements}</CVSection>
 					<CVSection heading="Skills">
-						<div className="mb-3">
+						{/* <div className="mb-3">
 							<h3 className="font-semibold mb-1 text-orange-500">Languages</h3>
 							<div>{languages}</div>
 						</div>
@@ -65,15 +66,15 @@ const CVPage = async ({}) => {
 						<div className="mb-3">
 							<h3 className="font-semibold mb-1 text-orange-500">DevOps</h3>
 							<div>{devops}</div>
-						</div>
+						</div> */}
 					</CVSection>
-					<CVSection heading="Projects">{projects}</CVSection>
+					{/* <CVSection heading="Projects">{projects}</CVSection> */}
 					{/* <CVSection heading="Certifications">{certifications}</CVSection> */}
 				</div>
 				<div className="w-2/3 p-10 bg-white text-black">
-					<CVHeader data={data} />
+					<CVHeader info={info} />
 					<CVSection heading="Summary">
-						<P>{data.summary}</P>
+						<P>{info.summary}</P>
 					</CVSection>
 					<CVSection heading="Experience">{experience}</CVSection>
 					<CVSection heading="Education">{education}</CVSection>
