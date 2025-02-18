@@ -5,9 +5,24 @@ import SocialLink from '@/components/SocialLink';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiReaddotcv } from 'react-icons/si';
 import Chatbot from './components/ChatBot';
+import { fetchDoc } from '@/utils/db';
+import { getIcon } from './cv/CVHeader';
 
 const Header = async () => {
-	const data = await fetchCVData();
+	const info = await fetchDoc('professionalInfo');
+
+	const links = info.links
+		.filter(({ title }) => title !== 'Portfolio')
+
+		.map((l, i) => {
+			const Icon = getIcon(l.title);
+
+			return (
+				<SocialLink key={`social-link-${l.href}`} href={l.href} tooltip={l.title}>
+					<Icon />
+				</SocialLink>
+			);
+		});
 
 	return (
 		<div className="lg:w-2/5 max-h-screen">
@@ -16,13 +31,13 @@ const Header = async () => {
 					<a href={'/'}>
 						<TextTicker
 							className="font-semibold text-amber-700 tracking-tight mb-2 font-mono text-4xl mr-2 hover:text-amber-600 hover:tracking-normal transition-all duration-200"
-							text={`${data.name};`}
+							text={`${info.name};`}
 						/>
 					</a>
 					<div className="flex gap-4">
 						<div>
-							<h2 className="text-xl text-gray-100 font-light mb-4">{data.subtitle}</h2>
-							<p className="text-base tracking-wide">{data.tagline}</p>
+							<h2 className="text-xl text-gray-100 font-light mb-4">{info.title}</h2>
+							<p className="text-base tracking-wide">{info.tagline}</p>
 						</div>
 						<nav className="text-right w-full max-lg:hidden">
 							<NavLink href="#about">Dan</NavLink>
@@ -42,12 +57,13 @@ const Header = async () => {
 				</div>
 
 				<footer className="text-3xl flex gap-8 items-end">
-					<SocialLink href={data.socials.github} tooltip="GitHub">
+					{links}
+					{/* <SocialLink href={info.} tooltip="GitHub">
 						<FaGithub />
 					</SocialLink>
-					<SocialLink href={data.socials.linkedin} tooltip="LinkedIn">
+					<SocialLink href={info.socials.linkedin} tooltip="LinkedIn">
 						<FaLinkedin />
-					</SocialLink>
+					</SocialLink> */}
 					<SocialLink href="/cv/dan-stoffels-cv.pdf" newWindow={false} tooltip="CV">
 						<SiReaddotcv />
 					</SocialLink>

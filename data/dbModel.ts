@@ -61,6 +61,7 @@ export type Skillset = {
 export type Project = {
 	title: string;
 	description: string;
+	base64Img?: string;
 	links: Link[];
 	tags: string[];
 };

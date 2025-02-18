@@ -11,7 +11,7 @@ export type CVHeaderProps = {
 
 const CVHeader: React.FC<CVHeaderProps> = ({ info }) => {
 	const links = info.links.map((l, i) => (
-		<CVHeaderLink Icon={getIcon(l.title)} href={l.href}>
+		<CVHeaderLink key={`hl-${l.href}`} Icon={getIcon(l.title)} href={l.href}>
 			{l.title}
 		</CVHeaderLink>
 	));
@@ -26,6 +26,7 @@ const CVHeader: React.FC<CVHeaderProps> = ({ info }) => {
 				<CVHeaderLink Icon={MdLocalPhone}>{info.phone}</CVHeaderLink>
 				<CVHeaderLink Icon={MdLocationPin}>{info.location}</CVHeaderLink>
 			</div>
+
 			<div>{links}</div>
 		</header>
 	);
@@ -33,7 +34,7 @@ const CVHeader: React.FC<CVHeaderProps> = ({ info }) => {
 
 export default CVHeader;
 
-function getIcon(linkTitle: string) {
+export function getIcon(linkTitle: string) {
 	switch (linkTitle) {
 		case 'GitHub':
 			return FaGithub;

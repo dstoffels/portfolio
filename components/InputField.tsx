@@ -29,14 +29,14 @@ const InputField: React.FC<InputFieldProps> = (props) => {
 			<label className="w-full">{label}</label>
 			{textarea ? (
 				<textarea
-					className="flex-grow resize-none overflow-hidden w-full bg-slate-900 border border-slate-500 rounded-sm p-1"
+					className="flex-grow resize-none overflow-hidden w-full bg-slate-800  rounded-sm p-1"
 					rows={1}
 					ref={textareaRef}
 					{...(inputProps as React.TextareaHTMLAttributes<HTMLTextAreaElement>)}
 				/>
 			) : (
 				<input
-					className="w-full p-1 rounded-sm bg-slate-700"
+					className="w-full p-1 rounded-sm bg-slate-800"
 					{...(inputProps as React.InputHTMLAttributes<HTMLInputElement>)}
 				/>
 			)}

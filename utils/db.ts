@@ -34,7 +34,7 @@ export async function fetchDoc(docId: 'professionalInfo') {
 export async function updateDoc(docId: 'professionalInfo', dbObj: ProfessionalInfoModel) {
 	const docRef = doc(db, `portfolio/${docId}`);
 
-	// clean incoming obj
+	// clean incoming obj to prevent breaking of db
 	const validKeys = new Set(Object.keys(defaultProfessionalInfo));
 	const prunedObj = Object.fromEntries(Object.entries(dbObj).filter(([key]) => validKeys.has(key)));
 

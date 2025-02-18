@@ -3,7 +3,7 @@ import { editInfoField, fetchCVData, logoutAdmin } from './actions';
 import HomeXP from './components/HomeXP';
 import Section from './components/Section';
 import HomeProject from './components/HomeProject';
-import { fetchSiteThumbnails } from './actions';
+import { fetchSiteThumbnail } from './actions';
 import Header from './header';
 import { fetchDoc, updateDoc } from '@/utils/db';
 import EditField from '@/components/EditField';
@@ -13,6 +13,7 @@ import Button from '@/components/Button';
 import LogoutBtn from './components/LogoutBtn';
 import InfoForm from './components/InfoForm';
 import Link from 'next/link';
+import ProjectForm from './components/ProjectForm';
 
 export default async function Page({ searchParams }: HomePageProps) {
 	const { isAdmin } = await auth();
@@ -22,16 +23,12 @@ export default async function Page({ searchParams }: HomePageProps) {
 		<HomeXP xp={xp} index={i} key={`xp-${i}`} isAdmin={isAdmin} info={info} />
 	));
 
-	const projectLinks = info.projects.map(
-		(p) => p.links.find((l) => l.title === 'Website')?.href as string,
-	);
-
 	// const { thumbnailPaths } = (await fetchSiteThumbnails(projectLinks)) as {
 	// 	thumbnailPaths: string[];
 	// };
 
 	const projects = info.projects.map((p, i) => (
-		<HomeProject project={p} src={''} key={`project-${i}`} />
+		<HomeProject info={info} project={p} index={i} key={`project-${i}`} />
 	));
 
 	async function editField(newVal: any, key: string) {
@@ -46,6 +43,7 @@ export default async function Page({ searchParams }: HomePageProps) {
 			<div className="min-h-screen lg:w-3/5 mx-auto">
 				<Section id="about" heading="About">
 					<InfoForm info={info} isAdmin={isAdmin} />
+
 					<EditField
 						name="about"
 						label="About"
@@ -56,10 +54,15 @@ export default async function Page({ searchParams }: HomePageProps) {
 						<p>{info.about}</p>
 					</EditField>
 				</Section>
+
 				<Section id="xp" heading="Experience">
 					{xp}
 					<XPForm info={info} />
-					<Link href="/cv">CV Page</Link>
+
+					<Link className="ml-3" href="/cv">
+						CV Page
+					</Link>
+
 					<a
 						className="text-slate-300 p-3 ease-in-out duration-300 hover:text-slate-400"
 						href="/cv/dan-stoffels-cv.pdf"
@@ -68,8 +71,10 @@ export default async function Page({ searchParams }: HomePageProps) {
 						<FiExternalLink className="inline text-xl ml-2" />
 					</a>
 				</Section>
+
 				<Section id="projects" heading="Projects">
 					{projects}
+					<ProjectForm info={info} />
 				</Section>
 				{/* <footer className="text-sm p-16 md:px-32 pt-0 text-slate-600">{data.footer}</footer> */}
 			</div>

@@ -2,7 +2,7 @@
 
 import CVSection from './CVSection';
 import CVxp from './CVxp';
-import Achievement from './Achievement';
+import CVAchievement from './CVAchievement';
 import Skill from './Skill';
 import CVEducation from './CVEducation';
 import P from '@/components/P';
@@ -10,7 +10,6 @@ import Cert from './Cert';
 
 import DownloadBtn from './DownloadBtn';
 import Project from './Project';
-import { fetchCVData } from '../actions';
 import DevUpdater from './DevUpdater';
 import CVHeader from './CVHeader';
 import { fetchDoc } from '@/utils/db';
@@ -24,7 +23,7 @@ const CVPage = async ({}) => {
 	const education = info.education.map((e, i) => <CVEducation key={`ed-${i}`} education={e} />);
 
 	const achievements = info.achievements.map((a, i) => (
-		<Achievement key={`ach-${i}`} achievement={a} />
+		<CVAchievement key={`ach-${i}`} achievement={a} />
 	));
 
 	// const languages = info.skills.languages.map((skill, i) => (

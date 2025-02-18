@@ -6,7 +6,7 @@ import { updateDoc } from '@/utils/db';
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { editInfoField } from '../actions';
-import LinkForm from '@/components/LinkForm';
+import LinkForm from '@/app/components/LinkForm';
 import ListEditor from '@/components/ListEditor';
 import Button from '@/components/Button';
 
