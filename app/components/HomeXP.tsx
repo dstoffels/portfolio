@@ -47,17 +47,16 @@ const HomeXP: React.FC<HomeXPProps> = ({ xp, index, isAdmin, info }) => {
 				</div>
 			)}
 
-			{isAdmin && (
-				<div className="flex justify-end">
-					<XPForm
-						index={index}
-						xp={xp}
-						info={info}
-						btnLabel="Edit"
-						onEdit={(isEditing) => setIsEditing(isEditing)}
-					/>
-				</div>
-			)}
+			<div className="flex justify-end">
+				<XPForm
+					isAdmin={isAdmin}
+					index={index}
+					xp={xp}
+					info={info}
+					btnLabel="Edit"
+					onEdit={(isEditing) => setIsEditing(isEditing)}
+				/>
+			</div>
 		</div>
 	);
 };

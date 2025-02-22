@@ -2,7 +2,7 @@
 
 import EditField from '@/components/EditField';
 import ProfessionalInfoModel, { Link } from '@/data/dbModel';
-import { updateDoc } from '@/utils/db';
+import { updateDoc } from '@/utils/firebaseActions';
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { editInfoField } from '../actions';

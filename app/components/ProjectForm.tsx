@@ -7,13 +7,14 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import LinkForm from './LinkForm';
 import ListEditor from '@/components/ListEditor';
-import { updateDoc } from '@/utils/db';
 import { api } from '@/utils/nexios';
+import { updateDoc } from '@/utils/firebaseActions';
 
 export type ProjectFormProps = {
 	btnText?: string;
 	project?: Project;
 	index?: number;
+	isAdmin: boolean;
 	info: ProfessionalInfoModel;
 	onEdit?: (isEditing: boolean) => void;
 	/** CURRENTLY UNIMPLEMENTED */
@@ -31,6 +32,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
 	btnText,
 	project = defaultProject,
 	index,
+	isAdmin,
 	info,
 	onEdit,
 }) => {
@@ -81,27 +83,29 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
 	const { tags } = projectObj;
 
 	return (
-		<BtnForm
-			btnText={btnText || 'Create New Project'}
-			onSubmit={handleSubmit}
-			onClose={handleCancel}
-		>
-			<InputField name="title" label="Title" value={projectObj.title} onChange={handleChange} />
-			<InputField
-				textarea
-				name="description"
-				label="Description"
-				value={projectObj.description}
-				onChange={handleChange}
-			/>
-			<div className="p-2 border border-slate-700 space-y-2">
-				<h3 className="text-lg font-semibold">Links</h3>
-				{links}
-				<LinkForm onSubmit={handleLink} />
-			</div>
+		isAdmin && (
+			<BtnForm
+				btnText={btnText || 'Create New Project'}
+				onSubmit={handleSubmit}
+				onClose={handleCancel}
+			>
+				<InputField name="title" label="Title" value={projectObj.title} onChange={handleChange} />
+				<InputField
+					textarea
+					name="description"
+					label="Description"
+					value={projectObj.description}
+					onChange={handleChange}
+				/>
+				<div className="p-2 border border-slate-700 space-y-2">
+					<h3 className="text-lg font-semibold">Links</h3>
+					{links}
+					<LinkForm onSubmit={handleLink} />
+				</div>
 
-			<ListEditor name="tags" label="Tags" list={tags} onChange={handleListChange} />
-		</BtnForm>
+				<ListEditor name="tags" label="Tags" list={tags} onChange={handleListChange} />
+			</BtnForm>
+		)
 	);
 };
 

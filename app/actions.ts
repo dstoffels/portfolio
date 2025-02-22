@@ -1,7 +1,6 @@
 'use server';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import OpenAI from 'openai';
 // import { ChatMessage } from './types';
 import yaml from 'yaml';
 import fs from 'fs';
@@ -9,9 +8,7 @@ import { CVData } from '@/app/types';
 import path from 'path';
 import { cookies } from 'next/headers';
 import ProfessionalInfoModel from '@/data/dbModel';
-import { fetchDoc, updateDoc } from '@/utils/db';
-
-const openai = new OpenAI();
+import { fetchDoc, updateDoc } from '@/utils/firebaseActions';
 
 // export async function createThread() {
 // 	const thread = await openai.beta.threads.create();

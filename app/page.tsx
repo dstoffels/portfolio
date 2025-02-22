@@ -5,7 +5,7 @@ import Section from './components/Section';
 import HomeProject from './components/HomeProject';
 import { fetchSiteThumbnail } from './actions';
 import Header from './header';
-import { fetchDoc, updateDoc } from '@/utils/db';
+import { fetchDoc, updateDoc } from '@/utils/firebaseActions';
 import EditField from '@/components/EditField';
 import { auth } from '@/utils/auth';
 import XPForm from './components/XPForm';
@@ -28,7 +28,7 @@ export default async function Page({ searchParams }: HomePageProps) {
 	// };
 
 	const projects = info.projects.map((p, i) => (
-		<HomeProject info={info} project={p} index={i} key={`project-${i}`} />
+		<HomeProject isAdmin={isAdmin} info={info} project={p} index={i} key={`project-${i}`} />
 	));
 
 	async function editField(newVal: any, key: string) {
@@ -57,9 +57,9 @@ export default async function Page({ searchParams }: HomePageProps) {
 
 				<Section id="xp" heading="Experience">
 					{xp}
-					<XPForm info={info} />
+					<XPForm isAdmin={isAdmin} info={info} />
 
-					<Link className="ml-3" href="/cv">
+					<Link className="ml-3" href="/api/resume">
 						CV Page
 					</Link>
 
@@ -74,7 +74,7 @@ export default async function Page({ searchParams }: HomePageProps) {
 
 				<Section id="projects" heading="Projects">
 					{projects}
-					<ProjectForm info={info} />
+					<ProjectForm isAdmin={isAdmin} info={info} />
 				</Section>
 				{/* <footer className="text-sm p-16 md:px-32 pt-0 text-slate-600">{data.footer}</footer> */}
 			</div>

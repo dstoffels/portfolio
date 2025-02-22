@@ -5,11 +5,12 @@ import ProjectForm from './ProjectForm';
 
 export type HomeProjectProps = {
 	project: Project;
-	index?: number;
+	index: number;
+	isAdmin: boolean;
 	info: ProfessionalInfoModel;
 };
 
-const HomeProject: React.FC<HomeProjectProps> = ({ project, index, info }) => {
+const HomeProject: React.FC<HomeProjectProps> = ({ project, index, isAdmin, info }) => {
 	const href = project.links[0].href;
 
 	const tags = project.tags.map((t) => (
@@ -37,9 +38,17 @@ const HomeProject: React.FC<HomeProjectProps> = ({ project, index, info }) => {
 					</div>
 				</div>
 			</a>
-			<div className="flex justify-end">
-				<ProjectForm info={info} btnText="Edit" index={index} project={project} />
-			</div>
+			{isAdmin && (
+				<div className="flex justify-end">
+					<ProjectForm
+						isAdmin={isAdmin}
+						info={info}
+						btnText="Edit"
+						index={index}
+						project={project}
+					/>
+				</div>
+			)}
 		</div>
 	);
 };

@@ -7,6 +7,7 @@ export type ProfessionalInfoModel = {
 	phone: string;
 	location: string;
 	links: Link[];
+	pdfDownloadURL: string;
 	about: string;
 	summary: string;
 	experience: Experience[];
