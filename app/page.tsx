@@ -101,10 +101,6 @@ export default async function Page({ searchParams }: HomePageProps) {
 						</>
 					)}
 
-					<Link className="ml-3" href="/resume">
-						Resume Page
-					</Link>
-
 					<a
 						className="text-slate-300 p-3 ease-in-out duration-300 hover:text-slate-400"
 						href="/resume/pdf"
