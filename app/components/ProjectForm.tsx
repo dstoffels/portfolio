@@ -40,20 +40,19 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
 
 	const handleSubmit = async () => {
 		if (index === undefined) {
-			index = info.projects.push(projectObj);
-			setProjectObj(project); // reset form
+			index = info.projects.push(projectObj) - 1;
 		} else {
 			info.projects[index] = projectObj;
 		}
 
-		console.log(api.baseURL);
-
 		const response = await api.get<{ base64Img: string }>('/screenshot', {
 			params: { url: projectObj.links[0].href },
 		});
+
 		info.projects[index].base64Img = response.data?.base64Img;
 
 		await updatePDF('professionalInfo', info);
+		setProjectObj(project); // reset form
 	};
 
 	const handleCancel = () => {

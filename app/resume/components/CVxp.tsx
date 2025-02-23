@@ -2,7 +2,6 @@ import P from '@/components/P';
 import { FaCode } from 'react-icons/fa';
 import { IoIosCalendar } from 'react-icons/io';
 import { MdLocationPin } from 'react-icons/md';
-import { XpType } from '../types';
 import { getMonth, getYear } from '@/utils/dateParser';
 import { Experience } from '@/data/dbModel';
 

@@ -54,7 +54,11 @@ const XPForm: React.FC<XPFormProps> = ({
 			info.experience[index] = xpObj;
 		}
 
-		info.experience.sort((x, y) => x.endDate.localeCompare(y.endDate));
+		info.experience.sort((a, b) => {
+			if (!a.endDate) return -1;
+			if (!b.endDate) return 1;
+			return b.endDate.localeCompare(a.endDate);
+		});
 		await updatePDF('professionalInfo', info);
 	};
 

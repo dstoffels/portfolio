@@ -24,7 +24,7 @@ const CVPage = async ({}) => {
 	let info = await fetchDoc('professionalInfo');
 
 	const experience = info.experience
-		.filter((xp, i) => i <= 3)
+		// .filter((xp, i) => i <= 3)
 		.map((xp, i) => <CVxp key={`xp-${i}`} xp={xp} />);
 
 	const education = info.education.map((e, i) => <CVEducation key={`ed-${i}`} education={e} />);
@@ -56,8 +56,7 @@ const CVPage = async ({}) => {
 						/>
 						<CVSection heading="Projects">{projects}</CVSection>
 						<CVSection heading="Skills">{skillsets}</CVSection>
-						<CVSection heading="Achievements">{achievements}</CVSection>
-						{/* <CVSection heading="Certifications">{certifications}</CVSection> */}
+						{/* <CVSection heading="Achievements">{achievements}</CVSection> */}
 					</div>
 					<div className="w-2/3 p-10 bg-white text-black">
 						<CVHeader info={info} />
@@ -68,7 +67,6 @@ const CVPage = async ({}) => {
 						<CVSection heading="Education">{education}</CVSection>
 					</div>
 				</div>
-				{/* {process.env.DEV && <DevUpdater />} */}
 			</div>
 		</>
 	);

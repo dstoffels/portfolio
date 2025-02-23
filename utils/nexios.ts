@@ -2,7 +2,7 @@ import nexios, { Nexios, NexiosHeaders } from 'nexios';
 
 export const api = new Nexios({
 	baseURL: process.env.NEXT_PUBLIC_SITE_URL + '/api',
-	timeout: 5000,
+	timeout: 30000,
 });
 
 export const browserless = new Nexios({
