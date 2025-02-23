@@ -7,7 +7,7 @@ import { SiReaddotcv } from 'react-icons/si';
 import Chatbot from './components/ChatBot';
 
 import { fetchDoc } from '@/utils/firebaseActions';
-import { getIcon } from './resume/CVHeader';
+import { getIcon } from './resume/components/CVHeader';
 
 const Header = async () => {
 	const info = await fetchDoc('professionalInfo');
@@ -42,7 +42,6 @@ const Header = async () => {
 						</div>
 						<nav className="text-right w-full max-lg:hidden">
 							<NavLink href="#about">Dan</NavLink>
-							{/* <NavLink href="#chat">Chat</NavLink> */}
 							<NavLink href="#xp">xp</NavLink>
 							<NavLink href="#projects">My Work</NavLink>
 						</nav>
@@ -65,7 +64,7 @@ const Header = async () => {
 					<SocialLink href={info.socials.linkedin} tooltip="LinkedIn">
 						<FaLinkedin />
 					</SocialLink> */}
-					<SocialLink href="/cv/dan-stoffels-cv.pdf" newWindow={false} tooltip="CV">
+					<SocialLink href="/resume/pdf" newWindow={false} tooltip="Resume">
 						<SiReaddotcv />
 					</SocialLink>
 				</footer>

@@ -1,19 +1,19 @@
 import { FiExternalLink } from 'react-icons/fi';
-import { editInfoField, fetchCVData, logoutAdmin } from './actions';
+import { editInfoField } from './actions';
 import HomeXP from './components/HomeXP';
 import Section from './components/Section';
 import HomeProject from './components/HomeProject';
-import { fetchSiteThumbnail } from './actions';
 import Header from './header';
 import { fetchDoc, updateDoc } from '@/utils/firebaseActions';
 import EditField from '@/components/EditField';
 import { auth } from '@/utils/auth';
 import XPForm from './components/XPForm';
-import Button from '@/components/Button';
 import LogoutBtn from './components/LogoutBtn';
 import InfoForm from './components/InfoForm';
 import Link from 'next/link';
 import ProjectForm from './components/ProjectForm';
+import SkillsetForm from './components/SkillsetForm';
+import { H2, H3 } from '@/components/H';
 
 export default async function Page({ searchParams }: HomePageProps) {
 	const { isAdmin } = await auth();
@@ -29,6 +29,17 @@ export default async function Page({ searchParams }: HomePageProps) {
 
 	const projects = info.projects.map((p, i) => (
 		<HomeProject isAdmin={isAdmin} info={info} project={p} index={i} key={`project-${i}`} />
+	));
+
+	const skillsets = info.skills.map((ss, i) => (
+		<SkillsetForm
+			key={`skillset-${i}`}
+			skillset={ss}
+			index={i}
+			info={info}
+			isAdmin={isAdmin}
+			btnLabel="Edit Skillset"
+		/>
 	));
 
 	async function editField(newVal: any, key: string) {
@@ -58,14 +69,20 @@ export default async function Page({ searchParams }: HomePageProps) {
 				<Section id="xp" heading="Experience">
 					{xp}
 					<XPForm isAdmin={isAdmin} info={info} />
+					<div className="border border-slate-800 p-2">
+						<H3>SKILLS</H3>
 
-					<Link className="ml-3" href="/api/resume">
-						CV Page
+						{skillsets}
+						<SkillsetForm isAdmin={isAdmin} info={info} />
+					</div>
+
+					<Link className="ml-3" href="/resume">
+						Resume Page
 					</Link>
 
 					<a
 						className="text-slate-300 p-3 ease-in-out duration-300 hover:text-slate-400"
-						href="/cv/dan-stoffels-cv.pdf"
+						href="/resume/pdf"
 					>
 						<span>View Resume</span>
 						<FiExternalLink className="inline text-xl ml-2" />

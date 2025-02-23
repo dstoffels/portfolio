@@ -1,17 +1,14 @@
-import CVSection from './CVSection';
-import CVxp from './CVxp';
-import CVAchievement from './CVAchievement';
-import Skill from './Skill';
-import CVEducation from './CVEducation';
+import CVSection from './components/CVSection';
+import CVxp from './components/CVxp';
+import CVAchievement from './components/CVAchievement';
+import CVEducation from './components/CVEducation';
 import P from '@/components/P';
-import Cert from './Cert';
 
-import DownloadBtn from './DownloadBtn';
-import Project from './Project';
-import DevUpdater from './DevUpdater';
-import CVHeader from './CVHeader';
+import CVProject from './components/CVProject';
+import CVHeader from './components/CVHeader';
 import { Inter } from 'next/font/google';
 import { fetchDoc } from '@/utils/firebaseActions';
+import CVSkillset from './components/CVSkillset';
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -26,28 +23,21 @@ export const dynamic = 'force-static';
 const CVPage = async ({}) => {
 	let info = await fetchDoc('professionalInfo');
 
-	const experience = info.experience.map((xp, i) => <CVxp key={`xp-${i}`} xp={xp} />);
+	const experience = info.experience
+		.filter((xp, i) => i <= 3)
+		.map((xp, i) => <CVxp key={`xp-${i}`} xp={xp} />);
+
 	const education = info.education.map((e, i) => <CVEducation key={`ed-${i}`} education={e} />);
 
 	const achievements = info.achievements.map((a, i) => (
 		<CVAchievement key={`ach-${i}`} achievement={a} />
 	));
 
-	// const languages = info.skills.languages.map((skill, i) => (
-	// 	<Skill key={`sk1-${i}`} skill={skill} />
-	// ));
-	// const frameworks = info.skills.frameworks.map((skill, i) => (
-	// 	<Skill key={`sk2-${i}`} skill={skill} />
-	// ));
-	// const devops = info.skills.devops.map((skill, i) => <Skill key={`sk3-${i}`} skill={skill} />);
+	const skillsets = info.skills.map((ss, i) => <CVSkillset skillset={ss} key={`skillset-${i}`} />);
 
-	// const certifications = info.certifications.map((cert, i) => (
-	// 	<Cert key={`cert-${i}`} cert={cert} />
-	// ));
-
-	// const projects = info.projects.map((project, i) => (
-	// 	<Project key={`proj-${i}`} project={project} />
-	// ));
+	const projects = info.projects.map((project, i) => (
+		<CVProject key={`proj-${i}`} project={project} />
+	));
 
 	return (
 		<>
@@ -57,7 +47,6 @@ const CVPage = async ({}) => {
 				as="style"
 			/>
 			<div className={`w-screen h-full ${inter.className}`}>
-				{/* <DownloadBtn baseUrl={process.env.BASE_URL as string} /> */}
 				<div className="flex overflow-hidden mx-auto aspect-pdf w-5xl" id="cv">
 					<div className="w-1/3 p-10 bg-sky-900 text-white">
 						<img
@@ -65,22 +54,9 @@ const CVPage = async ({}) => {
 							alt="Image of Dan Stoffels with a cat"
 							className="h-32 mx-auto mb-8 rounded-md"
 						/>
+						<CVSection heading="Projects">{projects}</CVSection>
+						<CVSection heading="Skills">{skillsets}</CVSection>
 						<CVSection heading="Achievements">{achievements}</CVSection>
-						<CVSection heading="Skills">
-							{/* <div className="mb-3">
-							<h3 className="font-semibold mb-1 text-orange-500">Languages</h3>
-							<div>{languages}</div>
-							</div>
-							<div className="mb-3">
-							<h3 className="font-semibold mb-1 text-orange-500">Frameworks</h3>
-							<div>{frameworks}</div>
-							</div>
-							<div className="mb-3">
-							<h3 className="font-semibold mb-1 text-orange-500">DevOps</h3>
-							<div>{devops}</div>
-							</div> */}
-						</CVSection>
-						{/* <CVSection heading="Projects">{projects}</CVSection> */}
 						{/* <CVSection heading="Certifications">{certifications}</CVSection> */}
 					</div>
 					<div className="w-2/3 p-10 bg-white text-black">

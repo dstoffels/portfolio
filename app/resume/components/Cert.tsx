@@ -1,5 +1,5 @@
 import P from '@/components/P';
-import { CertType } from '../types';
+import { CertType } from '../../types';
 
 const Cert = ({ cert }: CertProps) => {
 	const year = new Date(cert.date).getFullYear();

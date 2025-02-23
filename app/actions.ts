@@ -8,37 +8,7 @@ import { CVData } from '@/app/types';
 import path from 'path';
 import { cookies } from 'next/headers';
 import ProfessionalInfoModel from '@/data/dbModel';
-import { fetchDoc, updateDoc } from '@/utils/firebaseActions';
-
-// export async function createThread() {
-// 	const thread = await openai.beta.threads.create();
-// 	redirect(`/bot/${thread.id}`);
-// }
-
-// export async function runMsg(thread_id: string, formData: FormData) {
-// 	const content = formData.get('content') as string;
-// 	const assistant_id = process.env.OPENAI_ASSISTANT_ID as string;
-
-// 	const message = await openai.beta.threads.messages.create(thread_id, { role: 'user', content });
-
-// 	let run = await openai.beta.threads.runs.create(thread_id, {
-// 		assistant_id,
-// 		additional_instructions: 'Skip annotations',
-// 	});
-
-// 	while (run.status !== 'completed') {
-// 		await sleep(2000);
-// 		run = await openai.beta.threads.runs.retrieve(thread_id, run.id);
-// 		console.log(run.status);
-// 	}
-
-// 	revalidatePath(`/bot/${thread_id}`);
-// 	formData.set('content', '');
-// }
-
-// export async function fetchMsgs(thread_id: string) {
-// 	if (thread_id) return (await openai.beta.threads.messages.list(thread_id)).data as ChatMessage[];
-// }
+import { updatePDF } from '@/utils/firebaseActions';
 
 export async function editInfoField<K extends keyof ProfessionalInfoModel>(
 	info: ProfessionalInfoModel,
@@ -46,7 +16,7 @@ export async function editInfoField<K extends keyof ProfessionalInfoModel>(
 	newVal: ProfessionalInfoModel[K],
 ) {
 	info[key] = newVal;
-	await updateDoc('professionalInfo', info);
+	await updatePDF('professionalInfo', info);
 }
 
 export async function logoutAdmin() {

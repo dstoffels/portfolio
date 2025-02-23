@@ -3,6 +3,7 @@
 import ProfessionalInfoModel from '@/data/dbModel';
 import { db, storage } from '../utils/firebaseConfig';
 import { revalidatePath } from 'next/cache';
+import { api } from './nexios';
 
 const defaultProfessionalInfo: ProfessionalInfoModel = {
 	name: '',
@@ -50,20 +51,36 @@ export async function updateDoc(
 	revalidate && revalidatePath('/');
 }
 
+export async function updatePDF(
+	docId: 'professionalInfo',
+	dbObj: ProfessionalInfoModel,
+	pdfName = 'dan-stoffels-resume',
+) {
+	await updateDoc(docId, dbObj);
+
+	const response = await api.get(`/pdf/${pdfName}`);
+	console.log(response.data);
+}
+
 export async function storeFile(fileBuffer: ArrayBufferLike, path: string): Promise<string> {
 	try {
 		const bucket = storage.bucket();
 
 		const file = bucket.file(path);
 
-		file.delete();
+		await file.delete({ ignoreNotFound: true });
 
 		await file.save(Buffer.from(fileBuffer), {
 			contentType: 'application/pdf',
 			public: true,
+			resumable: false,
 		});
 
-		return `https://storage.googleapis.com/${bucket.name}/${path}`;
+		await file.setMetadata({
+			cacheControl: 'no-cache, no-store, must-revalidate',
+		});
+
+		return `https://storage.googleapis.com/${bucket.name}/${path}?t=${Date.now()}`;
 	} catch (error) {
 		console.error('Firebase upload failed:', error);
 		throw error;

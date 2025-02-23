@@ -4,7 +4,7 @@ import BtnForm from '@/components/BtnForm';
 import InputField from '@/components/InputField';
 import ListEditor from '@/components/ListEditor';
 import ProfessionalInfoModel, { Experience } from '@/data/dbModel';
-import { updateDoc } from '@/utils/firebaseActions';
+import { updatePDF } from '@/utils/firebaseActions';
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 
@@ -55,7 +55,7 @@ const XPForm: React.FC<XPFormProps> = ({
 		}
 
 		info.experience.sort((x, y) => x.endDate.localeCompare(y.endDate));
-		await updateDoc('professionalInfo', info);
+		await updatePDF('professionalInfo', info);
 	};
 
 	const handleCancel = () => {

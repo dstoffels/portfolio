@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 import LinkForm from './LinkForm';
 import ListEditor from '@/components/ListEditor';
 import { api } from '@/utils/nexios';
-import { updateDoc } from '@/utils/firebaseActions';
+import { updatePDF } from '@/utils/firebaseActions';
 
 export type ProjectFormProps = {
 	btnText?: string;
@@ -53,7 +53,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({
 		});
 		info.projects[index].base64Img = response.data?.base64Img;
 
-		await updateDoc('professionalInfo', info);
+		await updatePDF('professionalInfo', info);
 	};
 
 	const handleCancel = () => {

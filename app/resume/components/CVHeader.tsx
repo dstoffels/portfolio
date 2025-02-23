@@ -1,4 +1,4 @@
-import { CVData } from '../types';
+import { CVData } from '../../types';
 import { MdEmail, MdLocalPhone, MdLocationPin } from 'react-icons/md';
 import { CgWebsite } from 'react-icons/cg';
 import CVHeaderLink from './CVHeaderLink';

@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import Button from './Button';
+import { FiTrash } from 'react-icons/fi';
 
 export type BtnFormProps = React.PropsWithChildren & {
 	btnText: string;
@@ -11,6 +12,8 @@ export type BtnFormProps = React.PropsWithChildren & {
 	onSubmit?: () => void;
 	onOpen?: () => void;
 	onClose?: () => void;
+	canDelete?: boolean;
+	onDelete?: () => void;
 };
 
 const BtnForm: React.FC<BtnFormProps> = ({
@@ -20,6 +23,8 @@ const BtnForm: React.FC<BtnFormProps> = ({
 	onSubmit,
 	onOpen,
 	onClose,
+	canDelete,
+	onDelete,
 	children,
 }) => {
 	const [open, setOpen] = useState<boolean>(false);
@@ -39,15 +44,22 @@ const BtnForm: React.FC<BtnFormProps> = ({
 	};
 
 	return open ? (
-		<form className={className} onSubmit={handleSubmit}>
+		<div className={className}>
 			{children}
 			<div className="flex justify-end space-x-3">
-				<Button type="submit">{submitBtnText || 'Submit'}</Button>
-				<Button color="red" onClick={handleClose}>
+				{canDelete && (
+					<Button color="red" onClick={onDelete}>
+						<FiTrash />
+					</Button>
+				)}
+				<Button type="button" onClick={handleSubmit}>
+					{submitBtnText || 'Submit'}
+				</Button>
+				<Button color="purple" onClick={handleClose}>
 					Cancel
 				</Button>
 			</div>
-		</form>
+		</div>
 	) : (
 		<Button onClick={handleOpen}>{btnText}</Button>
 	);

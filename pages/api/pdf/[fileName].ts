@@ -19,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	} else {
 		url = process.env.NEXT_PUBLIC_SITE_URL;
 	}
-	url += '/cv';
+	url += '/resume';
 	console.log(url);
 
 	console.log('Requesting PDF generation from browserless.io...');
@@ -61,7 +61,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		console.log((error as Error).message);
 		res.status(500).json({ error });
 	} finally {
-		ngrokListener && (await ngrokListener.close());
-		console.log('Ngrok tunnel closed');
+		if (ngrokListener) {
+			await ngrokListener.close();
+			console.log('Ngrok tunnel closed');
+		}
 	}
 }
