@@ -74,6 +74,7 @@ export async function storeFile(fileBuffer: ArrayBufferLike, path: string): Prom
 			contentType: 'application/pdf',
 			public: true,
 			resumable: false,
+			timeout: 10000,
 		});
 
 		await file.setMetadata({

@@ -8,7 +8,7 @@ export type EducationProps = {
 	education: Education;
 };
 
-const CVEducation: React.FC<EducationProps> = ({ education }: EducationProps) => {
+const CVEducation: React.FC<EducationProps> = ({ education }) => {
 	const start = getMonth(education.startDate).numeric + '/' + getYear(education.startDate);
 	const end = education.endDate
 		? getMonth(education.endDate).numeric + '/' + getYear(education.endDate)

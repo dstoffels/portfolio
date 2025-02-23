@@ -96,7 +96,7 @@ const SkillsetForm: React.FC<SkillsetFormProps> = ({
 
 	return (
 		isAdmin && (
-			<div className="p-2 border border-slate-800">
+			<div className="p-2 border border-slate-800 mb-3">
 				<h3 className="text-lg font-semibold">{skillset.name}</h3>
 				<div className="p-2 ">
 					<div className="space-y-3">

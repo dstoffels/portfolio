@@ -14,6 +14,7 @@ import Link from 'next/link';
 import ProjectForm from './components/ProjectForm';
 import SkillsetForm from './components/SkillsetForm';
 import { H2, H3 } from '@/components/H';
+import EducationForm from './components/EducationForm';
 
 export default async function Page({ searchParams }: HomePageProps) {
 	const { isAdmin } = await auth();
@@ -39,6 +40,17 @@ export default async function Page({ searchParams }: HomePageProps) {
 			info={info}
 			isAdmin={isAdmin}
 			btnLabel="Edit Skillset"
+		/>
+	));
+
+	const educations = info.education.map((e, i) => (
+		<EducationForm
+			key={`eduform-${i}`}
+			education={e}
+			index={i}
+			info={info}
+			isAdmin={isAdmin}
+			btnLabel="Edit"
 		/>
 	));
 
@@ -68,13 +80,26 @@ export default async function Page({ searchParams }: HomePageProps) {
 
 				<Section id="xp" heading="Experience">
 					{xp}
-					<XPForm isAdmin={isAdmin} info={info} />
-					<div className="border border-slate-800 p-2">
-						<H3>SKILLS</H3>
-
-						{skillsets}
-						<SkillsetForm isAdmin={isAdmin} info={info} />
+					<div className="mb-6 flex justify-end">
+						<XPForm isAdmin={isAdmin} info={info} />
 					</div>
+					{isAdmin && (
+						<>
+							<div>
+								<H3>SKILLS</H3>
+
+								{skillsets}
+								<SkillsetForm isAdmin={isAdmin} info={info} />
+							</div>
+
+							<div>
+								<H3>EDUCATION</H3>
+
+								{educations}
+								<EducationForm isAdmin={isAdmin} info={info} />
+							</div>
+						</>
+					)}
 
 					<Link className="ml-3" href="/resume">
 						Resume Page
